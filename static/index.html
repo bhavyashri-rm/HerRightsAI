@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HerRights AI — Legal Rights & Cyber Safety Assistant</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+
+        /* ==========================================
+           PROFILE
+        ========================================== */
+
+        .profile-area {
+            position: relative;
+        }
+
+
+        .profile-button {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    border: 2px solid #e7b24c;
+
+    background: #e7b24c;
+
+    color: #111827;
+
+    font-weight: 700;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    line-height: 1;
+
+    box-sizing: border-box;
+
+    font-family: Arial, sans-serif;
+}
+
+.profile-button:hover {
+    transform: scale(1.05);
+
+    background: #f0c266;
+
+    border-color: #f0c266;
+}
+
+
+        .profile-button:hover {
+
+            background: #24304a;
+
+        }
+
+
+        .profile-menu {
+
+            position: absolute;
+
+            right: 0;
+
+            top: 52px;
+
+            width: 230px;
+
+            background: #111a2e;
+
+            border: 1px solid
+                rgba(255,255,255,.12);
+
+            border-radius: 14px;
+
+            padding: 10px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0,0,0,.35);
+
+            display: none;
+
+            z-index: 1000;
+
+        }
+
+
+        .profile-menu.show {
+
+            display: block;
+
+        }
+
+
+        .profile-name {
+
+            padding: 12px;
+
+            color: white;
+
+            font-weight: 700;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.08);
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .profile-menu button {
+
+            width: 100%;
+
+            text-align: left;
+
+            padding: 12px;
+
+            border: none;
+
+            background: transparent;
+
+            color: #d6dbe5;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+
+        }
+
+
+        .profile-menu button:hover {
+
+            background: rgba(255,255,255,.06);
+
+            color: #e7b24c;
+
+        }
+
+
+        /* ==========================================
+           WELCOME MESSAGE
+        ========================================== */
+
+        .welcome-message {
+
+            margin: 0 auto 30px;
+
+            max-width: 900px;
+
+            padding: 20px 25px;
+
+            border-radius: 14px;
+
+            background:
+                rgba(231,178,76,.08);
+
+            border: 1px solid
+                rgba(231,178,76,.15);
+
+        }
+
+
+        .welcome-message h2 {
+
+            margin: 0 0 7px;
+
+            font-family: var(--font-display);
+
+        }
+
+
+        .welcome-message p {
+
+            margin: 0;
+
+            color: var(--paper-dim);
+
+        }
+
+
+        /* ==========================================
+           MOBILE
+        ========================================== */
+
+        @media (max-width: 750px) {
+
+            .links {
+
+                display: none;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     NAVIGATION
+========================================== -->
+
+<header class="nav">
+
+
+    <a href="index.html" class="brand">
+
+        <span class="dot pulse"></span>
+
+        HerRights AI
+
+    </a>
+
+
+    <nav class="links">
+
+        <a href="index.html" class="active">
+
+            <span class="dot"></span>
+
+            Home
+
+        </a>
+
+
+        <a href="resources.html">
+
+            <span class="dot"></span>
+
+            Rights &amp; Resources
+
+        </a>
+
+
+        <a href="chat.html">
+
+            <span class="dot"></span>
+
+            Chat
+
+        </a>
+
+    </nav>
+
+
+    <div
+        class="nav-right"
+        id="navAccount">
+
+        <!-- JavaScript will insert
+             Login/Sign up OR profile -->
+
+    </div>
+
+
+</header>
+
+
+
+<!-- ==========================================
+     WELCOME
+========================================== -->
+
+<section>
+
+    <div class="wrap">
+
+        <div class="welcome-message">
+
+            <h2 id="welcomeTitle">
+
+                Welcome, User!
+
+            </h2>
+
+            <p>
+
+                How can I help you?
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     HERO
+========================================== -->
+
+<section class="hero">
+
+
+    <div
+        class="hero-bg img-duo"
+        style="border-radius:0;">
+
+        <img
+            src="https://picsum.photos/seed/her-rights-dawn/1800/1100"
+            alt="Soft dawn light breaking over hills"
+            loading="eager">
+
+    </div>
+
+
+    <div class="hero-content">
+
+
+        <div class="eyebrow">
+
+            <span class="dot"></span>
+
+            FREE · CONFIDENTIAL · AVAILABLE 24/7
+
+        </div>
+
+
+        <h1>
+
+            You have rights.<br>
+
+            You have a way forward.
+
+        </h1>
+
+
+        <p class="sub">
+
+            Simple guidance on workplace harassment,
+            cyber safety, domestic violence and
+            women's legal rights.
+
+        </p>
+
+
+        <div class="hero-ctas">
+
+
+            <a
+                href="chat.html"
+                class="btn btn-primary">
+
+                Start a conversation
+
+            </a>
+
+
+            <a
+                href="resources.html"
+                class="btn btn-secondary">
+
+                See your rights
+
+            </a>
+
+
+        </div>
+
+
+        <div class="reassure">
+
+            <span>
+
+                <span class="dot"></span>
+
+                No sign-up required
+
+            </span>
+
+
+            <span>
+
+                <span class="dot"></span>
+
+                Information available anytime
+
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     QUICK LINKS
+========================================== -->
+
+<section id="how-it-helps">
+
+
+    <div class="wrap">
+
+
+        <div class="eyebrow">
+
+            <span class="dot"></span>
+
+            HOW HER RIGHTS AI HELPS
+
+        </div>
+
+
+        <h2 class="head">
+
+            Four ways to get support.
+
+        </h2>
+
+
+        <p class="lede">
+
+            Get simple legal information,
+            learn about cyber safety, explore
+            your rights or find emergency
+            helplines.
+
+        </p>
+
+
+        <div class="card-grid">
+
+
+            <a
+                href="resources.html#rights"
+                class="link-card">
+
+
+                <img
+                    src="https://picsum.photos/seed/her-rights-rights/700/480"
+                    alt="Know Your Rights"
+                    class="card-img">
+
+
+                <h3>
+
+                    Know Your Rights
+
+                </h3>
+
+
+                <p>
+
+                    Plain-language information
+                    about laws that protect women.
+
+                </p>
+
+
+                <span class="go">
+
+                    Read the basics →
+
+                </span>
+
+
+            </a>
+
+
+
+            <a
+                href="resources.html#cyber"
+                class="link-card">
+
+
+                <img
+                    src="https://picsum.photos/seed/her-rights-cyber/700/480"
+                    alt="Cyber Safety"
+                    class="card-img">
+
+
+                <h3>
+
+                    Cyber Safety
+
+                </h3>
+
+
+                <p>
+
+                    Learn how to identify,
+                    prevent and report online abuse.
+
+                </p>
+
+
+                <span class="go">
+
+                    Stay safe online →
+
+                </span>
+
+
+            </a>
+
+
+
+            <a
+                href="emergency.html"
+                class="link-card">
+
+
+                <img
+                    src="https://picsum.photos/seed/her-rights-emergency/700/480"
+                    alt="Emergency Help"
+                    class="card-img">
+
+
+                <h3>
+
+                    Emergency Help
+
+                </h3>
+
+
+                <p>
+
+                    Find important emergency
+                    and women's helpline numbers
+                    across India.
+
+                </p>
+
+
+                <span class="go">
+
+                    Get numbers →
+
+                </span>
+
+
+            </a>
+
+
+
+            <a
+                href="chat.html"
+                class="link-card">
+
+
+                <img
+                    src="https://picsum.photos/seed/her-rights-chat/700/480"
+                    alt="AI Assistant"
+                    class="card-img">
+
+
+                <h3>
+
+                    AI Legal Assistant
+
+                </h3>
+
+
+                <p>
+
+                    Ask questions about your
+                    rights and available options.
+
+                </p>
+
+
+                <span class="go">
+
+                    Start chatting →
+
+                </span>
+
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     SUPPORT SECTION
+========================================== -->
+
+<section>
+
+
+    <div class="wrap split">
+
+
+        <div>
+
+
+            <div class="eyebrow">
+
+                <span class="dot"></span>
+
+                YOU ARE NOT ALONE
+
+            </div>
+
+
+            <h2 class="head">
+
+                Information should be
+                easy to understand.
+
+            </h2>
+
+
+            <p
+                class="lede"
+                style="margin-bottom:0;">
+
+                HerRights AI brings together
+                simplified legal information,
+                cyber safety guidance and
+                emergency resources in one place.
+
+            </p>
+
+
+            <ul class="check-list">
+
+
+                <li>
+
+                    <span class="dot"></span>
+
+                    Simple explanations of legal rights
+
+                </li>
+
+
+                <li>
+
+                    <span class="dot"></span>
+
+                    Cyber safety guidance
+
+                </li>
+
+
+                <li>
+
+                    <span class="dot"></span>
+
+                    Emergency helpline information
+
+                </li>
+
+
+                <li>
+
+                    <span class="dot"></span>
+
+                    AI-based conversational assistance
+
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+
+        <div class="img-duo">
+
+            <img
+                src="https://picsum.photos/seed/her-rights-support/900/1000"
+                alt="Supportive environment"
+                loading="lazy">
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     CTA
+========================================== -->
+
+<section>
+
+
+    <div class="wrap">
+
+
+        <div class="cta-banner">
+
+
+            <div
+                class="eyebrow"
+                style="margin-bottom:0;">
+
+                <span class="dot pulse"></span>
+
+                WHENEVER YOU'RE READY
+
+            </div>
+
+
+            <h2>
+
+                You don't have to
+                figure this out alone.
+
+            </h2>
+
+
+            <div
+                class="hero-ctas"
+                style="margin-bottom:0;">
+
+
+                <a
+                    href="chat.html"
+                    class="btn btn-primary">
+
+                    Start a conversation
+
+                </a>
+
+
+                <a
+                    href="resources.html"
+                    class="btn btn-secondary">
+
+                    Explore resources
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <p>
+
+        HerRights AI — a college prototype for an
+        AI-Based Legal Rights &amp; Cyber Safety Assistant.
+
+    </p>
+
+</footer>
+
+
+
+<!-- ==========================================
+     PROFILE + LOGIN JAVASCRIPT
+========================================== -->
+
+<script>
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadAccount
+);
+
+
+async function loadAccount() {
+
+    const navAccount =
+        document.getElementById("navAccount");
+
+    const welcomeTitle =
+        document.getElementById("welcomeTitle");
+
+
+    try {
+
+        const response =
+            await fetch("/api/me");
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            data.logged_in &&
+            data.user
+        ) {
+
+            const name =
+                data.user.name;
+
+
+            welcomeTitle.textContent =
+                "Welcome, "
+                + name
+                + "!";
+
+
+            navAccount.innerHTML = `
+
+                <div class="profile-area">
+
+                    <button
+                        class="profile-button"
+                        id="profileButton">
+
+                        ${getInitial(name)}
+
+                    </button>
+
+
+                    <div
+                        class="profile-menu"
+                        id="profileMenu">
+
+
+                        <div class="profile-name">
+
+                            ${escapeHtml(name)}
+
+                        </div>
+
+
+                        <button
+                            id="changeAccount">
+
+                            Change account
+
+                        </button>
+
+
+                        <button
+                            id="guestMode">
+
+                            Use without an account
+
+                        </button>
+
+
+                        <button
+                            id="logoutButton">
+
+                            Sign out
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            setupProfileMenu();
+
+        }
+
+        else {
+
+            welcomeTitle.textContent =
+                "Welcome, User!";
+
+
+            navAccount.innerHTML = `
+
+                <a
+                    href="login.html"
+                    class="nav-auth">
+
+                    Log in
+
+                </a>
+
+
+                <a
+                    href="signup.html"
+                    class="nav-auth">
+
+                    Sign up
+
+                </a>
+
+            `;
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        welcomeTitle.textContent =
+            "Welcome, User!";
+
+        navAccount.innerHTML = `
+
+            <a
+                href="login.html"
+                class="nav-auth">
+
+                Log in
+
+            </a>
+
+
+            <a
+                href="signup.html"
+                class="nav-auth">
+
+                Sign up
+
+            </a>
+
+        `;
+
+    }
+
+}
+
+
+// ============================================
+// PROFILE MENU
+// ============================================
+
+function setupProfileMenu() {
+
+    const profileButton =
+        document.getElementById(
+            "profileButton"
+        );
+
+
+    const profileMenu =
+        document.getElementById(
+            "profileMenu"
+        );
+
+
+    profileButton.addEventListener(
+        "click",
+        function(event) {
+
+            event.stopPropagation();
+
+            profileMenu.classList.toggle(
+                "show"
+            );
+
+        }
+    );
+
+
+    document.addEventListener(
+        "click",
+        function() {
+
+            profileMenu.classList.remove(
+                "show"
+            );
+
+        }
+    );
+
+
+    document
+        .getElementById("changeAccount")
+        .addEventListener(
+            "click",
+            function() {
+
+                window.location.href =
+                    "login.html";
+
+            }
+        );
+
+
+    document
+        .getElementById("guestMode")
+        .addEventListener(
+            "click",
+            async function() {
+
+                await fetch(
+                    "/api/logout",
+                    {
+                        method: "POST"
+                    }
+                );
+
+
+                window.location.href =
+                    "index.html";
+
+            }
+        );
+
+
+    document
+        .getElementById("logoutButton")
+        .addEventListener(
+            "click",
+            async function() {
+
+                await fetch(
+                    "/api/logout",
+                    {
+                        method: "POST"
+                    }
+                );
+
+
+                window.location.href =
+                    "index.html";
+
+            }
+        );
+
+}
+
+
+// ============================================
+// PROFILE INITIAL
+// ============================================
+
+function getInitial(name) {
+
+    if (!name) {
+        return "U";
+    }
+
+    return name
+        .trim()
+        .charAt(0)
+        .toUpperCase();
+
+}
+
+
+// ============================================
+// BASIC HTML ESCAPE
+// ============================================
+
+function escapeHtml(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

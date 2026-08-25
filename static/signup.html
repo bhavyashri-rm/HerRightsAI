@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HerRights AI — Create Account</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .auth-wrap {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 450px;
+            background: var(--panel, #111a2e);
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 18px;
+            padding: 35px;
+            box-sizing: border-box;
+        }
+
+        .auth-card h1 {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .auth-sub {
+            text-align: center;
+            color: var(--paper-dim, #aeb5c3);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .field {
+            margin-bottom: 20px;
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 8px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .input-row {
+            position: relative;
+        }
+
+        .field input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px;
+            padding-right: 75px;
+            border-radius: 9px;
+            border: 1px solid rgba(255,255,255,.15);
+            background: #0d1526;
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .field input:focus {
+            border-color: #e7b24c;
+        }
+
+        .toggle-pw {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            color: #e7b24c;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .field-error {
+            display: none;
+            color: #ff9292;
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        .field.has-error input {
+            border-color: #ff6b6b;
+        }
+
+        .field.has-error .field-error {
+            display: block;
+        }
+
+        .auth-submit {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 9px;
+            background: #e7b24c;
+            color: #111827;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .auth-submit:hover {
+            opacity: .9;
+        }
+
+        .form-message {
+            display: none;
+            margin-top: 18px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .form-message.success {
+            display: block;
+            background: rgba(70,180,110,.15);
+            color: #9be7b5;
+        }
+
+        .form-message.error {
+            display: block;
+            background: rgba(220,70,70,.15);
+            color: #ff9b9b;
+        }
+
+        .auth-alt {
+            text-align: center;
+            margin-top: 25px;
+            color: #aeb5c3;
+        }
+
+        .auth-alt a {
+            color: #e7b24c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .guest-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,.08);
+            color: #c7cbd4;
+            text-decoration: none;
+        }
+
+        .guest-link:hover {
+            color: #e7b24c;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="nav">
+
+    <a href="index.html" class="brand">
+
+        <span class="dot pulse"></span>
+
+        HerRights AI
+
+    </a>
+
+
+    <nav class="links">
+
+        <a href="index.html">
+            <span class="dot"></span>
+            Home
+        </a>
+
+        <a href="resources.html">
+            <span class="dot"></span>
+            Rights &amp; Resources
+        </a>
+
+        <a href="chat.html">
+            <span class="dot"></span>
+            Chat
+        </a>
+
+    </nav>
+
+
+    <div class="nav-right">
+
+        <a href="login.html" class="nav-auth">
+            Log in
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<main class="auth-wrap">
+
+    <div class="auth-card">
+
+
+        <div class="eyebrow">
+
+            <span class="dot"></span>
+
+            HER RIGHTS AI
+
+        </div>
+
+
+        <h1>
+            Create your account
+        </h1>
+
+
+        <p class="auth-sub">
+
+            Create an account to personalize
+            your HerRights AI experience.
+
+            You can also use the website
+            without an account.
+
+        </p>
+
+
+        <form id="signupForm">
+
+
+            <div class="field" id="nameField">
+
+                <label for="fullName">
+                    Full name
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Your name"
+                        autocomplete="name"
+                        required>
+
+                </div>
+
+                <div class="field-error">
+                    Please enter your name.
+                </div>
+
+            </div>
+
+
+
+            <div class="field" id="emailField">
+
+                <label for="email">
+                    Email address
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required>
+
+                </div>
+
+                <div class="field-error">
+                    Please enter a valid email address.
+                </div>
+
+            </div>
+
+
+
+            <div class="field" id="passwordField">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="At least 6 characters"
+                        autocomplete="new-password"
+                        minlength="6"
+                        required>
+
+                    <button
+                        type="button"
+                        class="toggle-pw"
+                        data-target="password">
+
+                        Show
+
+                    </button>
+
+                </div>
+
+                <div class="field-error">
+                    Password must be at least 6 characters.
+                </div>
+
+            </div>
+
+
+
+            <div class="field" id="confirmField">
+
+                <label for="confirmPassword">
+                    Confirm password
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Re-enter your password"
+                        autocomplete="new-password"
+                        required>
+
+                    <button
+                        type="button"
+                        class="toggle-pw"
+                        data-target="confirmPassword">
+
+                        Show
+
+                    </button>
+
+                </div>
+
+                <div class="field-error">
+                    Passwords do not match.
+                </div>
+
+            </div>
+
+
+
+            <button
+                type="submit"
+                class="btn btn-primary auth-submit">
+
+                Create Account
+
+            </button>
+
+
+        </form>
+
+
+        <div
+            id="formMessage"
+            class="form-message">
+
+        </div>
+
+
+        <div class="auth-alt">
+
+            Already have an account?
+
+            <a href="login.html">
+                Log in
+            </a>
+
+        </div>
+
+
+        <a
+            href="index.html"
+            class="guest-link">
+
+            Continue without an account →
+
+        </a>
+
+
+    </div>
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        HerRights AI — a college prototype for an
+        AI-Based Legal Rights &amp; Cyber Safety Assistant.
+    </p>
+
+</footer>
+
+
+
+<script>
+
+const signupForm =
+    document.getElementById("signupForm");
+
+const formMessage =
+    document.getElementById("formMessage");
+
+
+// ============================================
+// SHOW / HIDE PASSWORD
+// ============================================
+
+document
+    .querySelectorAll(".toggle-pw")
+    .forEach(function(button) {
+
+        button.addEventListener(
+            "click",
+            function() {
+
+                const input =
+                    document.getElementById(
+                        button.dataset.target
+                    );
+
+                if (input.type === "password") {
+
+                    input.type = "text";
+
+                    button.textContent = "Hide";
+
+                }
+
+                else {
+
+                    input.type = "password";
+
+                    button.textContent = "Show";
+
+                }
+
+            }
+        );
+
+    });
+
+
+// ============================================
+// SIGN UP
+// ============================================
+
+signupForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document
+                .getElementById("fullName")
+                .value
+                .trim();
+
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
+
+
+        const password =
+            document
+                .getElementById("password")
+                .value;
+
+
+        const confirmPassword =
+            document
+                .getElementById("confirmPassword")
+                .value;
+
+
+        if (name === "") {
+
+            showMessage(
+                "Please enter your name.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if (password.length < 6) {
+
+            showMessage(
+                "Password must contain at least 6 characters.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if (password !== confirmPassword) {
+
+            showMessage(
+                "Passwords do not match.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        try {
+
+            const response =
+                await fetch(
+                    "/api/signup",
+                    {
+
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+
+                            name: name,
+
+                            email: email,
+
+                            password: password
+
+                        })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (data.success) {
+
+                showMessage(
+                    "Account created successfully!",
+                    "success"
+                );
+
+
+                setTimeout(
+                    function() {
+
+                        window.location.href =
+                            "index.html";
+
+                    },
+                    900
+                );
+
+            }
+
+            else {
+
+                showMessage(
+                    data.message,
+                    "error"
+                );
+
+            }
+
+        }
+
+        catch (error) {
+
+            console.error(error);
+
+            showMessage(
+                "Cannot connect to the HerRights AI server. Make sure python app.py is running.",
+                "error"
+            );
+
+        }
+
+    }
+);
+
+
+function showMessage(text, type) {
+
+    formMessage.textContent = text;
+
+    formMessage.className =
+        "form-message " + type;
+
+}
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HerRights AI — Rights & Resources</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="style.css">
+
+
+    <style>
+
+        /* =========================================
+           RESOURCES PAGE
+        ========================================= */
+
+        .resources-container {
+
+            max-width: 1100px;
+
+            margin: 60px auto;
+
+            padding: 20px;
+
+        }
+
+
+        .resources-container > h1 {
+
+            margin-top: 10px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .resources-intro {
+
+            color: #c7cbd4;
+
+            line-height: 1.7;
+
+            max-width: 750px;
+
+        }
+
+
+        .resource-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 25px;
+
+            margin-top: 40px;
+
+        }
+
+
+        .resource-card {
+
+            background: #111a2e;
+
+            border: 1px solid
+                rgba(255,255,255,0.1);
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            transition: 0.3s;
+
+            display: flex;
+
+            flex-direction: column;
+
+            min-height: 390px;
+
+            box-sizing: border-box;
+
+        }
+
+
+        .resource-card:hover {
+
+            transform: translateY(-4px);
+
+            border-color: #e7b24c;
+
+        }
+
+
+        .resource-card h3 {
+
+            color: #e7b24c;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .resource-card p {
+
+            color: #c7cbd4;
+
+            line-height: 1.7;
+
+        }
+
+
+        .resource-card ul {
+
+            color: #c7cbd4;
+
+            line-height: 1.8;
+
+            padding-left: 20px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .resource-card li {
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .resource-link {
+
+            display: inline-block;
+
+            margin-top: auto;
+
+            padding: 12px 16px;
+
+            border: 1px solid #e7b24c;
+
+            border-radius: 8px;
+
+            color: #e7b24c;
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            text-align: center;
+
+            transition: 0.2s;
+
+        }
+
+
+        .resource-link:hover {
+
+            background: #e7b24c;
+
+            color: #111827;
+
+            text-decoration: none;
+
+        }
+
+
+        .emergency-link {
+
+            display: inline-block;
+
+            margin-top: auto;
+
+            padding: 12px 18px;
+
+            background: #e7b24c;
+
+            color: #111827;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: 700;
+
+            text-align: center;
+
+        }
+
+
+        .emergency-link:hover {
+
+            opacity: 0.9;
+
+        }
+
+
+        .phone-number {
+
+            font-family:
+                "IBM Plex Mono",
+                monospace;
+
+            font-size: 18px;
+
+            color: #ffffff;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        /* =========================================
+           PROFILE
+        ========================================= */
+
+        .profile-area {
+
+            position: relative;
+
+        }
+
+
+        .profile-button {
+
+            width: 42px;
+
+            height: 42px;
+
+            border-radius: 50%;
+
+            border: 2px solid #e7b24c;
+
+            background: #e7b24c;
+
+            color: #111827;
+
+            font-weight: 700;
+
+            font-size: 17px;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 0;
+
+            line-height: 1;
+
+            box-sizing: border-box;
+
+            font-family: Arial, sans-serif;
+
+        }
+
+
+        .profile-button:hover {
+
+            transform: scale(1.05);
+
+            background: #f0c266;
+
+            border-color: #f0c266;
+
+        }
+
+
+        .profile-menu {
+
+            position: absolute;
+
+            right: 0;
+
+            top: 52px;
+
+            width: 230px;
+
+            background: #111a2e;
+
+            border: 1px solid
+                rgba(255,255,255,.12);
+
+            border-radius: 14px;
+
+            padding: 10px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0,0,0,.35);
+
+            display: none;
+
+            z-index: 1000;
+
+        }
+
+
+        .profile-menu.show {
+
+            display: block;
+
+        }
+
+
+        .profile-name {
+
+            padding: 12px;
+
+            color: white;
+
+            font-weight: 700;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.08);
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .profile-menu button {
+
+            width: 100%;
+
+            text-align: left;
+
+            padding: 12px;
+
+            border: none;
+
+            background: transparent;
+
+            color: #d6dbe5;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+
+        }
+
+
+        .profile-menu button:hover {
+
+            background:
+                rgba(255,255,255,.06);
+
+            color: #e7b24c;
+
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 750px) {
+
+            .links {
+
+                display: none;
+
+            }
+
+            .resources-container {
+
+                margin-top: 30px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
+<header class="nav">
+
+
+    <a href="index.html"
+       class="brand">
+
+        <span class="dot pulse"></span>
+
+        HerRights AI
+
+    </a>
+
+
+    <nav class="links">
+
+
+        <a href="index.html">
+
+            <span class="dot"></span>
+
+            Home
+
+        </a>
+
+
+        <a href="resources.html"
+           class="active">
+
+            <span class="dot"></span>
+
+            Rights &amp; Resources
+
+        </a>
+
+
+        <a href="chat.html">
+
+            <span class="dot"></span>
+
+            Chat
+
+        </a>
+
+
+    </nav>
+
+
+    <div
+        class="nav-right"
+        id="navAccount">
+
+        <!-- JavaScript inserts account controls -->
+
+    </div>
+
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN CONTENT
+========================================= -->
+
+<main class="resources-container">
+
+
+    <div class="eyebrow">
+
+        <span class="dot"></span>
+
+        HER RIGHTS AI · RESOURCES
+
+    </div>
+
+
+    <h1>
+
+        Rights &amp; Resources
+
+    </h1>
+
+
+    <p class="resources-intro">
+
+        Understand your rights, stay safe online,
+        and find the right support when you need it.
+
+    </p>
+
+
+
+    <div class="resource-grid">
+
+
+
+        <!-- =====================================
+             KNOW YOUR RIGHTS
+        ====================================== -->
+
+        <section
+            id="rights"
+            class="resource-card">
+
+
+            <h3>
+
+                Know Your Rights
+
+            </h3>
+
+
+            <p>
+
+                Learn about women's legal rights,
+                protections and important laws
+                in simple language.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Understand your basic legal rights
+                </li>
+
+                <li>
+                    Learn about legal protections
+                </li>
+
+                <li>
+                    Explore Indian laws
+                </li>
+
+                <li>
+                    Find official legal information
+                </li>
+
+            </ul>
+
+
+            <a
+                href="https://www.indiacode.nic.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="resource-link">
+
+                Explore India Code →
+
+            </a>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             CYBER SAFETY
+        ====================================== -->
+
+        <section
+            id="cyber"
+            class="resource-card">
+
+
+            <h3>
+
+                Cyber Safety &amp; Reporting
+
+            </h3>
+
+
+            <p>
+
+                Learn how to protect yourself from
+                online harassment, scams, stalking
+                and other cyber threats.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Never share passwords or OTPs
+                </li>
+
+                <li>
+                    Be careful with suspicious links
+                </li>
+
+                <li>
+                    Preserve screenshots and messages
+                </li>
+
+                <li>
+                    Keep usernames, URLs and
+                    transaction details as evidence
+                </li>
+
+                <li>
+                    Report serious cybercrime through
+                    the official portal
+                </li>
+
+            </ul>
+
+
+            <!-- OFFICIAL CYBER CRIME PORTAL -->
+
+            <a
+                href="https://cybercrime.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="resource-link">
+
+                Visit Cybercrime Portal →
+
+            </a>
+
+
+            <div class="phone-number">
+
+                Cybercrime Helpline: 1930
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             EMERGENCY HELP
+        ====================================== -->
+
+        <section
+            id="emergency"
+            class="resource-card">
+
+
+            <h3>
+
+                Emergency Help
+
+            </h3>
+
+
+            <p>
+
+                Access important emergency and
+                women-support numbers used
+                across India.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Emergency Response — 112
+                </li>
+
+                <li>
+                    Women Helpline — 181
+                </li>
+
+                <li>
+                    NCW Helpline — 14490
+                </li>
+
+                <li>
+                    Cybercrime — 1930
+                </li>
+
+            </ul>
+
+
+            <a
+                href="emergency.html"
+                class="emergency-link">
+
+                View Emergency Numbers →
+
+            </a>
+
+
+        </section>
+
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <p>
+
+        HerRights AI — a college prototype for an
+        AI-Based Legal Rights &amp; Cyber Safety Assistant.
+
+    </p>
+
+</footer>
+
+
+
+<!-- =========================================
+     ACCOUNT SYSTEM
+========================================= -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadAccount
+);
+
+
+async function loadAccount() {
+
+    const navAccount =
+        document.getElementById("navAccount");
+
+
+    try {
+
+        const response =
+            await fetch("/api/me");
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            data.logged_in &&
+            data.user
+        ) {
+
+            const name =
+                data.user.name;
+
+
+            navAccount.innerHTML = `
+
+                <div class="profile-area">
+
+                    <button
+                        class="profile-button"
+                        id="profileButton">
+
+                        ${getInitial(name)}
+
+                    </button>
+
+
+                    <div
+                        class="profile-menu"
+                        id="profileMenu">
+
+
+                        <div class="profile-name">
+
+                            ${escapeHtml(name)}
+
+                        </div>
+
+
+                        <button
+                            id="changeAccount">
+
+                            Change account
+
+                        </button>
+
+
+                        <button
+                            id="guestMode">
+
+                            Use without an account
+
+                        </button>
+
+
+                        <button
+                            id="logoutButton">
+
+                            Sign out
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            setupProfileMenu();
+
+        }
+
+        else {
+
+            navAccount.innerHTML = `
+
+                <a
+                    href="login.html"
+                    class="nav-auth">
+
+                    Log in
+
+                </a>
+
+
+                <a
+                    href="signup.html"
+                    class="nav-auth">
+
+                    Sign up
+
+                </a>
+
+            `;
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+
+        navAccount.innerHTML = `
+
+            <a
+                href="login.html"
+                class="nav-auth">
+
+                Log in
+
+            </a>
+
+
+            <a
+                href="signup.html"
+                class="nav-auth">
+
+                Sign up
+
+            </a>
+
+        `;
+
+    }
+
+}
+
+
+// ============================================
+// PROFILE MENU
+// ============================================
+
+function setupProfileMenu() {
+
+    const profileButton =
+        document.getElementById(
+            "profileButton"
+        );
+
+
+    const profileMenu =
+        document.getElementById(
+            "profileMenu"
+        );
+
+
+    profileButton.addEventListener(
+        "click",
+        function(event) {
+
+            event.stopPropagation();
+
+            profileMenu.classList.toggle(
+                "show"
+            );
+
+        }
+    );
+
+
+    document.addEventListener(
+        "click",
+        function() {
+
+            profileMenu.classList.remove(
+                "show"
+            );
+
+        }
+    );
+
+
+    document
+        .getElementById("changeAccount")
+        .addEventListener(
+            "click",
+            function() {
+
+                window.location.href =
+                    "login.html";
+
+            }
+        );
+
+
+    document
+        .getElementById("guestMode")
+        .addEventListener(
+            "click",
+            async function() {
+
+                await fetch(
+                    "/api/logout",
+                    {
+                        method: "POST"
+                    }
+                );
+
+
+                window.location.href =
+                    "index.html";
+
+            }
+        );
+
+
+    document
+        .getElementById("logoutButton")
+        .addEventListener(
+            "click",
+            async function() {
+
+                await fetch(
+                    "/api/logout",
+                    {
+                        method: "POST"
+                    }
+                );
+
+
+                window.location.href =
+                    "index.html";
+
+            }
+        );
+
+}
+
+
+// ============================================
+// PROFILE INITIAL
+// ============================================
+
+function getInitial(name) {
+
+    if (!name) {
+
+        return "U";
+
+    }
+
+
+    return name
+        .trim()
+        .charAt(0)
+        .toUpperCase();
+
+}
+
+
+// ============================================
+// HTML ESCAPING
+// ============================================
+
+function escapeHtml(text) {
+
+    const div =
+        document.createElement("div");
+
+
+    div.textContent = text;
+
+
+    return div.innerHTML;
+
+}
+
+</script>
+
+
+</body>
+
+</html>
