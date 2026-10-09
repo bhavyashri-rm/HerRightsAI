@@ -5,14 +5,17 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>HerRights AI — Chat</title>
 
-    <link rel="stylesheet"
-          href="style.css">
-
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
     <style>
 
@@ -20,398 +23,406 @@
            CHAT PAGE
         ========================================= */
 
-        .chat-container {
-
-            max-width: 900px;
-
-            margin: 50px auto;
-
+        .chat-page {
+            max-width: 1250px;
+            margin: 35px auto;
             padding: 20px;
-
         }
 
+        .chat-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        /* =========================================
+           HISTORY SIDEBAR
+        ========================================= */
+
+        .history-sidebar {
+            background: #111a2e;
+            border: 1px solid rgba(255,255,255,.10);
+            border-radius: 15px;
+            padding: 15px;
+            min-height: 620px;
+            position: sticky;
+            top: 20px;
+        }
+
+        .history-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .history-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .new-chat-button {
+            border: 1px solid #e7b24c;
+            background: transparent;
+            color: #e7b24c;
+            border-radius: 8px;
+            padding: 7px 10px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .new-chat-button:hover {
+            background: #e7b24c;
+            color: #111827;
+        }
+
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            max-height: 490px;
+            overflow-y: auto;
+        }
+
+        .history-empty {
+            color: #9ba3b5;
+            font-size: 13px;
+            line-height: 1.5;
+            padding: 15px 5px;
+        }
+
+        .history-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-radius: 9px;
+            padding: 3px;
+        }
+
+        .history-item:hover {
+            background: rgba(255,255,255,.05);
+        }
+
+        .history-item.active {
+            background: rgba(231,178,76,.12);
+        }
+
+        .history-open {
+            flex: 1;
+            min-width: 0;
+            border: none;
+            background: transparent;
+            color: #d9deea;
+            text-align: left;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 7px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .history-item.active .history-open {
+            color: #e7b24c;
+            font-weight: 700;
+        }
+
+        .history-delete {
+            border: none;
+            background: transparent;
+            color: #858da0;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        .history-delete:hover {
+            background: rgba(255,80,80,.12);
+            color: #ff7b7b;
+        }
+
+        .delete-all-button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid rgba(255,100,100,.35);
+            border-radius: 8px;
+            background: transparent;
+            color: #ff8a8a;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .delete-all-button:hover {
+            background: rgba(255,100,100,.10);
+        }
+
+        /* =========================================
+           CHAT BOX
+        ========================================= */
 
         .chat-box {
-
             background: #111a2e;
-
-            border: 1px solid
-                rgba(255,255,255,0.1);
-
+            border: 1px solid rgba(255,255,255,.10);
             border-radius: 15px;
-
             padding: 25px;
-
         }
-
 
         .chat-box h1 {
-
             margin-bottom: 10px;
-
         }
-
 
         .chat-box > p {
-
             color: #c7cbd4;
-
         }
 
+        .current-chat-title {
+            color: #e7b24c;
+            font-size: 14px;
+            margin-top: 10px;
+            min-height: 20px;
+        }
 
         .chat-messages {
-
             height: 450px;
-
             overflow-y: auto;
-
             padding: 20px;
-
             display: flex;
-
             flex-direction: column;
-
             gap: 15px;
-
-            margin-top: 20px;
-
+            margin-top: 10px;
         }
-
 
         .message {
-
             max-width: 75%;
-
             padding: 14px 18px;
-
             border-radius: 12px;
-
-            line-height: 1.5;
-
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+            word-break: break-word;
         }
-
 
         .bot-message {
-
             background: #17223b;
-
             align-self: flex-start;
-
             color: white;
-
         }
-
 
         .user-message {
-
             background: #e7b24c;
-
             color: #111827;
-
             align-self: flex-end;
-
         }
 
+        .bot-message h2,
+        .bot-message h3,
+        .bot-message h4 {
+            margin: 14px 0 8px;
+            line-height: 1.3;
+            color: #e7b24c;
+        }
+
+        .bot-message h2 {
+            font-size: 20px;
+        }
+
+        .bot-message h3 {
+            font-size: 18px;
+        }
+
+        .bot-message h4 {
+            font-size: 16px;
+        }
+
+        .bot-message p {
+            margin: 8px 0;
+        }
+
+        .bot-message ul,
+        .bot-message ol {
+            margin: 8px 0 12px;
+            padding-left: 24px;
+        }
+
+        .bot-message li {
+            margin: 5px 0;
+        }
+
+        .bot-message hr {
+            border: 0;
+            border-top: 1px solid rgba(255,255,255,.15);
+            margin: 14px 0;
+        }
+
+        .bot-message strong {
+            color: white;
+        }
+
+        .bot-message code {
+            background: rgba(255,255,255,.08);
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
 
         .chat-input-area {
-
             display: flex;
-
             gap: 10px;
-
             margin-top: 15px;
-
         }
-
 
         .chat-input {
-
             flex: 1;
-
             padding: 15px;
-
             border-radius: 10px;
-
             border: 1px solid #444;
-
             background: #0c1424;
-
             color: white;
-
             font-size: 16px;
-
             outline: none;
-
         }
-
 
         .chat-input:focus {
-
             border-color: #e7b24c;
-
         }
-
 
         .send-button {
-
             padding: 12px 25px;
-
             border: none;
-
             border-radius: 10px;
-
             background: #e7b24c;
-
+            color: #111827;
             cursor: pointer;
-
             font-weight: bold;
-
         }
-
 
         .send-button:hover {
-
-            opacity: .9;
-
+            background: #f0c266;
         }
-
 
         .send-button:disabled {
-
             opacity: .5;
-
             cursor: not-allowed;
-
         }
-
-
-        .action-buttons {
-
-            margin-top: 12px;
-
-            display: flex;
-
-            gap: 8px;
-
-            flex-wrap: wrap;
-
-        }
-
-
-        .action-buttons a {
-
-            padding: 8px 12px;
-
-            border: 1px solid #e7b24c;
-
-            border-radius: 8px;
-
-            color: #e7b24c;
-
-            text-decoration: none;
-
-            font-size: 13px;
-
-        }
-
-
-        .action-buttons a:hover {
-
-            background: #e7b24c;
-
-            color: #111827;
-
-        }
-
 
         .typing {
-
-            opacity: 0.7;
-
+            opacity: .7;
             font-style: italic;
-
         }
-
 
         /* =========================================
            PROFILE
         ========================================= */
 
         .profile-area {
-
             position: relative;
-
         }
-
 
         .profile-button {
-
             width: 42px;
-
             height: 42px;
-
             border-radius: 50%;
-
             border: 2px solid #e7b24c;
-
             background: #e7b24c;
-
             color: #111827;
-
             font-weight: 700;
-
             font-size: 17px;
-
             cursor: pointer;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             padding: 0;
-
-            line-height: 1;
-
-            box-sizing: border-box;
-
-            font-family: Arial, sans-serif;
-
         }
-
-
-        .profile-button:hover {
-
-            transform: scale(1.05);
-
-            background: #f0c266;
-
-            border-color: #f0c266;
-
-        }
-
 
         .profile-menu {
-
             position: absolute;
-
             right: 0;
-
             top: 52px;
-
             width: 230px;
-
             background: #111a2e;
-
-            border: 1px solid
-                rgba(255,255,255,.12);
-
+            border: 1px solid rgba(255,255,255,.12);
             border-radius: 14px;
-
             padding: 10px;
-
-            box-shadow:
-                0 15px 40px
-                rgba(0,0,0,.35);
-
+            box-shadow: 0 15px 40px rgba(0,0,0,.35);
             display: none;
-
             z-index: 1000;
-
         }
-
 
         .profile-menu.show {
-
             display: block;
-
         }
-
 
         .profile-name {
-
             padding: 12px;
-
             color: white;
-
             font-weight: 700;
-
-            border-bottom:
-                1px solid
-                rgba(255,255,255,.08);
-
+            border-bottom: 1px solid rgba(255,255,255,.08);
             margin-bottom: 5px;
-
         }
-
 
         .profile-menu button {
-
             width: 100%;
-
             text-align: left;
-
             padding: 12px;
-
             border: none;
-
             background: transparent;
-
             color: #d6dbe5;
-
             border-radius: 8px;
-
             cursor: pointer;
-
-            font-size: 14px;
-
         }
-
 
         .profile-menu button:hover {
-
-            background:
-                rgba(255,255,255,.06);
-
+            background: rgba(255,255,255,.06);
             color: #e7b24c;
-
         }
-
 
         /* =========================================
            MOBILE
         ========================================= */
 
+        @media (max-width: 850px) {
+
+            .chat-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .history-sidebar {
+                position: static;
+                min-height: auto;
+            }
+
+            .history-list {
+                max-height: 200px;
+            }
+
+            .chat-messages {
+                height: 400px;
+            }
+        }
+
         @media (max-width: 750px) {
 
             .links {
-
                 display: none;
-
             }
-
 
             .chat-input-area {
-
                 flex-direction: column;
-
             }
-
 
             .send-button {
-
                 width: 100%;
-
             }
-
 
             .message {
-
                 max-width: 90%;
-
             }
-
         }
 
     </style>
@@ -428,9 +439,10 @@
 
 <header class="nav">
 
-
-    <a href="index.html"
-       class="brand">
+    <a
+        href="index.html"
+        class="brand"
+    >
 
         <span class="dot pulse"></span>
 
@@ -440,7 +452,6 @@
 
 
     <nav class="links">
-
 
         <a href="index.html">
 
@@ -460,8 +471,10 @@
         </a>
 
 
-        <a href="chat.html"
-           class="active">
+        <a
+            href="chat.html"
+            class="active"
+        >
 
             <span class="dot"></span>
 
@@ -469,28 +482,24 @@
 
         </a>
 
-
     </nav>
 
 
     <div
         class="nav-right"
-        id="navAccount">
-
-        <!-- Account controls inserted here -->
+        id="navAccount"
+    >
 
     </div>
-
 
 </header>
 
 
-
 <!-- =========================================
-     CHAT
+     MAIN CHAT PAGE
 ========================================= -->
 
-<main class="chat-container">
+<main class="chat-page">
 
 
     <div class="eyebrow">
@@ -502,121 +511,163 @@
     </div>
 
 
-
-    <div class="chat-box">
-
-
-        <h1>
-
-            How can HerRights AI help you?
-
-        </h1>
+    <div class="chat-layout">
 
 
-        <p>
+        <!-- =====================================
+             HISTORY
+        ====================================== -->
 
-            Describe your situation in your
-            own words.
-
-        </p>
-
+        <aside class="history-sidebar">
 
 
-        <div
-            class="chat-messages"
-            id="chatMessages">
+            <div class="history-top">
+
+                <div class="history-title">
+
+                    Chat History
+
+                </div>
+
+
+                <button
+                    class="new-chat-button"
+                    id="newChatButton"
+                >
+
+                    + New
+
+                </button>
+
+            </div>
 
 
             <div
-                class="message bot-message">
+                class="history-list"
+                id="historyList"
+            >
+
+                <div class="history-empty">
+
+                    Loading history...
+
+                </div>
+
+            </div>
 
 
-                <strong>
+            <button
+                class="delete-all-button"
+                id="deleteAllButton"
+                style="display: none;"
+            >
 
-                    HerRights AI
+                Delete All History
 
-                </strong>
+            </button>
 
-
-                <br><br>
-
-
-                Hello. I'm HerRights AI.
-
-
-                <br><br>
+        </aside>
 
 
-                I can provide general guidance about:
+        <!-- =====================================
+             CHAT
+        ====================================== -->
+
+        <section class="chat-box">
 
 
-                <ul>
+            <h1>
 
-                    <li>
-                        Domestic violence
-                    </li>
+                How can HerRights AI help you?
 
-                    <li>
-                        Cybercrime
-                    </li>
-
-                    <li>
-                        Online financial fraud
-                    </li>
-
-                    <li>
-                        Workplace harassment
-                    </li>
-
-                    <li>
-                        Preserving evidence
-                    </li>
-
-                    <li>
-                        Women's legal rights
-                    </li>
-
-                </ul>
+            </h1>
 
 
-                What would you like help with?
+            <p>
+
+                Describe your situation in your own words.
+
+            </p>
+
+
+            <div
+                class="current-chat-title"
+                id="currentChatTitle"
+            >
+
+            </div>
+
+
+            <div
+                class="chat-messages"
+                id="chatMessages"
+            >
+
+                <div class="message bot-message">
+
+                    <strong>HerRights AI</strong>
+
+                    <br><br>
+
+                    Hello. I'm HerRights AI.
+
+                    <br><br>
+
+                    I can provide general guidance about:
+
+                    <ul>
+
+                        <li>Domestic violence</li>
+
+                        <li>Cybercrime</li>
+
+                        <li>Online financial fraud</li>
+
+                        <li>Workplace harassment</li>
+
+                        <li>Preserving evidence</li>
+
+                        <li>Women's legal rights</li>
+
+                    </ul>
+
+                    What would you like help with?
+
+                </div>
+
+            </div>
+
+
+            <div class="chat-input-area">
+
+
+                <input
+                    type="text"
+                    id="messageInput"
+                    class="chat-input"
+                    placeholder="Describe your situation..."
+                    autocomplete="off"
+                >
+
+
+                <button
+                    id="sendButton"
+                    class="send-button"
+                >
+
+                    Send
+
+                </button>
 
 
             </div>
 
 
-        </div>
-
-
-
-        <div class="chat-input-area">
-
-
-            <input
-                type="text"
-                id="messageInput"
-                class="chat-input"
-                placeholder="Describe your situation..."
-                autocomplete="off">
-
-
-            <button
-                id="sendButton"
-                class="send-button">
-
-                Send
-
-            </button>
-
-
-        </div>
-
+        </section>
 
     </div>
 
-
 </main>
-
 
 
 <!-- =========================================
@@ -635,19 +686,39 @@
 </footer>
 
 
-
-<!-- =========================================
-     ACCOUNT SYSTEM
-========================================= -->
-
 <script>
 
+/* =========================================
+   GLOBAL VARIABLES
+========================================= */
+
+let currentConversationId = null;
+
+let loggedIn = false;
+
+
+/* =========================================
+   PAGE START
+========================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
-    loadAccount
+    initializePage
 );
 
+
+async function initializePage() {
+
+    await loadAccount();
+
+    await loadHistory();
+
+}
+
+
+/* =========================================
+   ACCOUNT
+========================================= */
 
 async function loadAccount() {
 
@@ -670,6 +741,9 @@ async function loadAccount() {
             data.user
         ) {
 
+            loggedIn = true;
+
+
             const name =
                 data.user.name;
 
@@ -680,7 +754,8 @@ async function loadAccount() {
 
                     <button
                         class="profile-button"
-                        id="profileButton">
+                        id="profileButton"
+                    >
 
                         ${getInitial(name)}
 
@@ -689,8 +764,8 @@ async function loadAccount() {
 
                     <div
                         class="profile-menu"
-                        id="profileMenu">
-
+                        id="profileMenu"
+                    >
 
                         <div class="profile-name">
 
@@ -699,29 +774,25 @@ async function loadAccount() {
                         </div>
 
 
-                        <button
-                            id="changeAccount">
+                        <button id="changeAccount">
 
                             Change account
 
                         </button>
 
 
-                        <button
-                            id="guestMode">
+                        <button id="guestMode">
 
                             Use without an account
 
                         </button>
 
 
-                        <button
-                            id="logoutButton">
+                        <button id="logoutButton">
 
                             Sign out
 
                         </button>
-
 
                     </div>
 
@@ -732,15 +803,17 @@ async function loadAccount() {
 
             setupProfileMenu();
 
-        }
+        } else {
 
-        else {
+            loggedIn = false;
+
 
             navAccount.innerHTML = `
 
                 <a
                     href="login.html"
-                    class="nav-auth">
+                    class="nav-auth"
+                >
 
                     Log in
 
@@ -749,7 +822,8 @@ async function loadAccount() {
 
                 <a
                     href="signup.html"
-                    class="nav-auth">
+                    class="nav-auth"
+                >
 
                     Sign up
 
@@ -759,42 +833,19 @@ async function loadAccount() {
 
         }
 
-    }
+    } catch (error) {
 
-    catch (error) {
+        console.error(
+            "Account error:",
+            error
+        );
 
-        console.error(error);
-
-
-        navAccount.innerHTML = `
-
-            <a
-                href="login.html"
-                class="nav-auth">
-
-                Log in
-
-            </a>
-
-
-            <a
-                href="signup.html"
-                class="nav-auth">
-
-                Sign up
-
-            </a>
-
-        `;
+        loggedIn = false;
 
     }
 
 }
 
-
-// ============================================
-// PROFILE MENU
-// ============================================
 
 function setupProfileMenu() {
 
@@ -893,10 +944,6 @@ function setupProfileMenu() {
 }
 
 
-// ============================================
-// PROFILE INITIAL
-// ============================================
-
 function getInitial(name) {
 
     if (!name) {
@@ -914,10 +961,6 @@ function getInitial(name) {
 }
 
 
-// ============================================
-// HTML ESCAPING
-// ============================================
-
 function escapeHtml(text) {
 
     const div =
@@ -931,16 +974,483 @@ function escapeHtml(text) {
 
 }
 
-</script>
+
+/* =========================================
+   CHAT HISTORY
+========================================= */
+
+async function loadHistory() {
+
+    const historyList =
+        document.getElementById(
+            "historyList"
+        );
 
 
+    const deleteAllButton =
+        document.getElementById(
+            "deleteAllButton"
+        );
 
-<!-- =========================================
-     CHAT SYSTEM
-========================================= -->
 
-<script>
+    if (!loggedIn) {
 
+        historyList.innerHTML = `
+
+            <div class="history-empty">
+
+                Log in to save and view
+                your chat history.
+
+            </div>
+
+        `;
+
+
+        deleteAllButton.style.display =
+            "none";
+
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/conversations"
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !data.success ||
+            data.conversations.length === 0
+        ) {
+
+            historyList.innerHTML = `
+
+                <div class="history-empty">
+
+                    No conversations yet.
+                    Start a new chat.
+
+                </div>
+
+            `;
+
+
+            deleteAllButton.style.display =
+                "none";
+
+
+            return;
+
+        }
+
+
+        deleteAllButton.style.display =
+            "block";
+
+
+        historyList.innerHTML = "";
+
+
+        data.conversations.forEach(
+            function(conversation) {
+
+                const item =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                item.className =
+                    "history-item";
+
+
+                if (
+                    currentConversationId ===
+                    conversation.id
+                ) {
+
+                    item.classList.add(
+                        "active"
+                    );
+
+                }
+
+
+                const openButton =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                openButton.className =
+                    "history-open";
+
+
+                openButton.textContent =
+                    conversation.title;
+
+
+                openButton.title =
+                    conversation.title;
+
+
+                openButton.addEventListener(
+                    "click",
+                    function() {
+
+                        openConversation(
+                            conversation.id
+                        );
+
+                    }
+                );
+
+
+                const deleteButton =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                deleteButton.className =
+                    "history-delete";
+
+
+                deleteButton.textContent =
+                    "🗑";
+
+
+                deleteButton.title =
+                    "Delete conversation";
+
+
+                deleteButton.addEventListener(
+                    "click",
+                    function(event) {
+
+                        event.stopPropagation();
+
+                        deleteConversation(
+                            conversation.id
+                        );
+
+                    }
+                );
+
+
+                item.appendChild(
+                    openButton
+                );
+
+
+                item.appendChild(
+                    deleteButton
+                );
+
+
+                historyList.appendChild(
+                    item
+                );
+
+            }
+        );
+
+    } catch (error) {
+
+        console.error(
+            "History error:",
+            error
+        );
+
+
+        historyList.innerHTML = `
+
+            <div class="history-empty">
+
+                Unable to load chat history.
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================
+   OPEN CONVERSATION
+========================================= */
+
+async function openConversation(conversationId) {
+    try {
+        const response = await fetch(
+            "/api/conversations/" + conversationId
+        );
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+            alert(
+                data.message || "Unable to open conversation."
+            );
+            return;
+        }
+
+        currentConversationId = data.conversation.id;
+
+        document.getElementById("currentChatTitle").textContent =
+            data.conversation.title;
+
+        const messages = document.getElementById("chatMessages");
+        messages.innerHTML = "";
+
+        // FIX: Messages are inside data.conversation.messages
+        data.conversation.messages.forEach(function(message) {
+            addMessage(
+                message.message,
+                message.sender === "user" ? "user" : "bot"
+            );
+        });
+
+        await loadHistory();
+
+    } catch (error) {
+        console.error("Open conversation error:", error);
+        alert("Unable to open this conversation.");
+    }
+}
+
+
+/* =========================================
+   DELETE ONE CONVERSATION
+========================================= */
+
+async function deleteConversation(
+    conversationId
+) {
+
+    const confirmed =
+        confirm(
+            "Delete this conversation?\n\n"
+            + "This cannot be undone."
+        );
+
+
+    if (!confirmed) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/conversations/"
+                + conversationId,
+                {
+                    method: "DELETE"
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!data.success) {
+
+            alert(
+                data.message ||
+                "Unable to delete conversation."
+            );
+
+            return;
+
+        }
+
+
+        if (
+            currentConversationId ===
+            conversationId
+        ) {
+
+            startNewChat();
+
+        }
+
+
+        await loadHistory();
+
+    } catch (error) {
+
+        console.error(
+            "Delete error:",
+            error
+        );
+
+
+        alert(
+            "Unable to delete conversation."
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   DELETE ALL HISTORY
+========================================= */
+
+document
+    .getElementById("deleteAllButton")
+    .addEventListener(
+        "click",
+        async function() {
+
+            const confirmed =
+                confirm(
+                    "Delete ALL chat history?\n\n"
+                    + "Every saved conversation will "
+                    + "be permanently deleted."
+                );
+
+
+            if (!confirmed) {
+
+                return;
+
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/api/conversations",
+                        {
+                            method: "DELETE"
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (!data.success) {
+
+                    alert(
+                        data.message ||
+                        "Unable to delete history."
+                    );
+
+                    return;
+
+                }
+
+
+                currentConversationId =
+                    null;
+
+
+                startNewChat();
+
+
+                await loadHistory();
+
+            } catch (error) {
+
+                console.error(
+                    "Delete all error:",
+                    error
+                );
+
+
+                alert(
+                    "Unable to delete history."
+                );
+
+            }
+
+        }
+    );
+
+
+/* =========================================
+   NEW CHAT
+========================================= */
+
+document
+    .getElementById("newChatButton")
+    .addEventListener(
+        "click",
+        function() {
+
+            startNewChat();
+
+        }
+    );
+
+
+function startNewChat() {
+
+    currentConversationId =
+        null;
+
+
+    document.getElementById(
+        "currentChatTitle"
+    ).textContent = "";
+
+
+    document.getElementById(
+        "chatMessages"
+    ).innerHTML = `
+
+        <div class="message bot-message">
+
+            <strong>HerRights AI</strong>
+
+            <br><br>
+
+            Hello. I'm HerRights AI.
+
+            <br><br>
+
+            What would you like help with?
+
+        </div>
+
+    `;
+
+
+    document.getElementById(
+        "messageInput"
+    ).focus();
+
+
+    loadHistory();
+
+}
+
+
+/* =========================================
+   CHAT
+========================================= */
 
 const input =
     document.getElementById(
@@ -960,13 +1470,10 @@ const chatMessages =
     );
 
 
-
 function addMessage(
     message,
-    type,
-    actions = []
+    type
 ) {
-
 
     const messageDiv =
         document.createElement(
@@ -981,7 +1488,6 @@ function addMessage(
 
     if (type === "user") {
 
-
         messageDiv.classList.add(
             "user-message"
         );
@@ -990,12 +1496,7 @@ function addMessage(
         messageDiv.innerText =
             message;
 
-
-    }
-
-
-    else {
-
+    } else {
 
         messageDiv.classList.add(
             "bot-message"
@@ -1003,73 +1504,9 @@ function addMessage(
 
 
         messageDiv.innerHTML =
-            "<strong>HerRights AI</strong>" +
-            "<br><br>" +
-            formatBotMessage(message);
-
-
-        if (
-            actions.length > 0
-        ) {
-
-
-            const actionDiv =
-                document.createElement(
-                    "div"
-                );
-
-
-            actionDiv.className =
-                "action-buttons";
-
-
-            actions.forEach(
-                function(action) {
-
-
-                    const link =
-                        document.createElement(
-                            "a"
-                        );
-
-
-                    link.href =
-                        action.url;
-
-
-                    link.innerText =
-                        action.label;
-
-
-                    if (
-                        action.url
-                            .startsWith("http")
-                    ) {
-
-                        link.target =
-                            "_blank";
-
-                        link.rel =
-                            "noopener noreferrer";
-
-                    }
-
-
-                    actionDiv.appendChild(
-                        link
-                    );
-
-
-                }
-            );
-
-
-            messageDiv.appendChild(
-                actionDiv
-            );
-
-
-        }
+            "<strong>HerRights AI</strong>"
+            + "<br><br>"
+            + formatBotMessage(message);
 
     }
 
@@ -1085,18 +1522,256 @@ function addMessage(
 }
 
 
+/* =========================================
+   FORMAT AI RESPONSE
+========================================= */
 
-function formatBotMessage(message) {
+function formatBotMessage(
+    message
+) {
 
-    return escapeHtml(message)
-        .replace(/\n/g, "<br>");
+    const escaped =
+        escapeHtml(
+            String(message)
+        );
+
+
+    const lines =
+        escaped
+            .replace(/\r\n/g, "\n")
+            .replace(/\r/g, "\n")
+            .split("\n");
+
+
+    let html = "";
+
+    let inList = false;
+
+    let listType = "";
+
+
+    function closeList() {
+
+        if (inList) {
+
+            html +=
+                listType === "ol"
+                    ? "</ol>"
+                    : "</ul>";
+
+            inList = false;
+
+            listType = "";
+
+        }
+
+    }
+
+
+    lines.forEach(
+        function(line) {
+
+            const trimmed =
+                line.trim();
+
+
+            if (trimmed === "") {
+
+                closeList();
+
+                return;
+
+            }
+
+
+            if (
+                trimmed === "---"
+                ||
+                trimmed === "***"
+            ) {
+
+                closeList();
+
+                html += "<hr>";
+
+                return;
+
+            }
+
+
+            const headingMatch =
+                trimmed.match(
+                    /^#{1,4}\s+(.*)$/
+                );
+
+
+            if (headingMatch) {
+
+                closeList();
+
+
+                const headingSymbols =
+                    headingMatch[0]
+                        .match(/^#+/)[0];
+
+
+                const level =
+                    Math.min(
+                        headingSymbols.length,
+                        4
+                    );
+
+
+                html +=
+                    "<h"
+                    + level
+                    + ">"
+                    + formatInline(
+                        headingMatch[1]
+                    )
+                    + "</h"
+                    + level
+                    + ">";
+
+
+                return;
+
+            }
+
+
+            const bulletMatch =
+                trimmed.match(
+                    /^[-*•]\s+(.*)$/
+                );
+
+
+            if (bulletMatch) {
+
+                if (
+                    !inList ||
+                    listType !== "ul"
+                ) {
+
+                    closeList();
+
+                    html += "<ul>";
+
+                    inList = true;
+
+                    listType = "ul";
+
+                }
+
+
+                html +=
+                    "<li>"
+                    + formatInline(
+                        bulletMatch[1]
+                    )
+                    + "</li>";
+
+
+                return;
+
+            }
+
+
+            const numberMatch =
+                trimmed.match(
+                    /^\d+\.\s+(.*)$/
+                );
+
+
+            if (numberMatch) {
+
+                if (
+                    !inList ||
+                    listType !== "ol"
+                ) {
+
+                    closeList();
+
+                    html += "<ol>";
+
+                    inList = true;
+
+                    listType = "ol";
+
+                }
+
+
+                html +=
+                    "<li>"
+                    + formatInline(
+                        numberMatch[1]
+                    )
+                    + "</li>";
+
+
+                return;
+
+            }
+
+
+            closeList();
+
+
+            html +=
+                "<p>"
+                + formatInline(trimmed)
+                + "</p>";
+
+        }
+    );
+
+
+    closeList();
+
+
+    return html;
 
 }
 
 
+function formatInline(
+    text
+) {
+
+    let result =
+        text;
+
+
+    result =
+        result.replace(
+            /`([^`]+)`/g,
+            "<code>$1</code>"
+        );
+
+
+    result =
+        result.replace(
+            /\*\*(.*?)\*\*/g,
+            "<strong>$1</strong>"
+        );
+
+
+    result =
+        result.replace(
+            /\*([^*]+)\*/g,
+            "<em>$1</em>"
+        );
+
+
+    return result;
+
+}
+
+
+/* =========================================
+   SEND MESSAGE
+========================================= */
 
 async function sendMessage() {
-
 
     const message =
         input.value.trim();
@@ -1109,6 +1784,14 @@ async function sendMessage() {
     }
 
 
+    sendButton.disabled =
+        true;
+
+
+    input.disabled =
+        true;
+
+
     addMessage(
         message,
         "user"
@@ -1116,10 +1799,6 @@ async function sendMessage() {
 
 
     input.value = "";
-
-
-    sendButton.disabled =
-        true;
 
 
     const typing =
@@ -1132,7 +1811,7 @@ async function sendMessage() {
         "message bot-message typing";
 
 
-    typing.innerText =
+    typing.textContent =
         "HerRights AI is thinking...";
 
 
@@ -1146,7 +1825,6 @@ async function sendMessage() {
 
 
     try {
-
 
         const response =
             await fetch(
@@ -1164,7 +1842,11 @@ async function sendMessage() {
 
                     body: JSON.stringify({
 
-                        message: message
+                        message:
+                            message,
+
+                        conversation_id:
+                            currentConversationId
 
                     })
 
@@ -1179,52 +1861,126 @@ async function sendMessage() {
         typing.remove();
 
 
-        if (!response.ok) {
+        if (!data.success) {
 
-            throw new Error(
-                data.error ||
-                "Something went wrong"
+            addMessage(
+                data.message ||
+                "Something went wrong.",
+                "bot"
             );
+
+
+            return;
+
+        }
+
+
+        if (
+            data.conversation_id &&
+            !currentConversationId
+        ) {
+
+            currentConversationId =
+                data.conversation_id;
 
         }
 
 
         addMessage(
-            data.answer,
-            "bot",
-            data.actions || []
+            data.response,
+            "bot"
         );
 
 
-    }
+        if (loggedIn) {
+
+            await loadHistory();
 
 
-    catch (error) {
+            if (currentConversationId) {
+
+                await updateCurrentTitle();
+
+            }
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Chat error:",
+            error
+        );
 
 
         typing.remove();
 
 
         addMessage(
-            "Sorry, I couldn't process your request. Please try again.",
+            "Unable to connect to the HerRights AI server. Please make sure python app.py is running.",
             "bot"
         );
 
+    } finally {
 
-        console.error(error);
+        sendButton.disabled =
+            false;
+
+
+        input.disabled =
+            false;
+
+
+        input.focus();
 
     }
-
-
-    sendButton.disabled =
-        false;
-
-
-    input.focus();
 
 }
 
 
+/* =========================================
+   UPDATE CURRENT TITLE
+========================================= */
+
+async function updateCurrentTitle() {
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/conversations/"
+                + currentConversationId
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (data.success) {
+
+            document.getElementById(
+                "currentChatTitle"
+            ).textContent =
+                data.conversation.title;
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Title update error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   BUTTON AND ENTER KEY
+========================================= */
 
 sendButton.addEventListener(
     "click",
@@ -1232,14 +1988,14 @@ sendButton.addEventListener(
 );
 
 
-
 input.addEventListener(
     "keydown",
     function(event) {
 
-
         if (
             event.key === "Enter"
+            &&
+            !event.shiftKey
         ) {
 
             event.preventDefault();
@@ -1250,25 +2006,6 @@ input.addEventListener(
 
     }
 );
-
-
-
-function escapeHtml(text) {
-
-    const div =
-        document.createElement(
-            "div"
-        );
-
-
-    div.textContent =
-        text;
-
-
-    return div.innerHTML;
-
-}
-
 
 </script>
 

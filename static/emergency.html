@@ -2,617 +2,388 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>HerRights AI — Emergency Help</title>
 
-
-    <!-- Google Fonts -->
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
           rel="stylesheet">
 
-
-    <!-- Main CSS -->
-
-    <link rel="stylesheet"
-          href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 
     <style>
 
         /* =====================================================
-           PAGE CONTAINER
+           PAGE
         ===================================================== */
 
         .emergency-container {
-
             max-width: 1150px;
-
             margin: 55px auto;
-
             padding: 20px;
-
         }
-
-
-        /* =====================================================
-           INTRO
-        ===================================================== */
 
         .emergency-intro {
-
             max-width: 850px;
-
             margin-bottom: 35px;
-
         }
-
 
         .emergency-intro h1 {
-
             margin-bottom: 15px;
-
         }
 
-
-        .emergency-intro p {
-
+        .emergency-intro p,
+        .section-heading p,
+        .primary-emergency p,
+        .emergency-card p {
             color: #c7cbd4;
-
             line-height: 1.7;
-
-            font-size: 17px;
-
         }
 
 
         /* =====================================================
-           MOST IMPORTANT EMERGENCY - 112
+           PROFILE ACCOUNT
+        ===================================================== */
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .profile-area {
+            position: relative;
+        }
+
+        .profile-button {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 2px solid #e7b24c;
+            background: #e7b24c;
+            color: #111827;
+            font-weight: 700;
+            font-size: 17px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            line-height: 1;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .profile-button:hover {
+            transform: scale(1.05);
+            background: #f0c266;
+            border-color: #f0c266;
+        }
+
+        .profile-menu {
+            position: absolute;
+            right: 0;
+            top: 52px;
+            width: 230px;
+            background: #111a2e;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 14px;
+            padding: 10px;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+        }
+
+        .profile-menu.show {
+            display: block;
+        }
+
+        .profile-name {
+            padding: 12px;
+            color: #e7b24c;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 5px;
+        }
+
+        .profile-menu button {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            text-align: left;
+            padding: 11px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .profile-menu button:hover {
+            background: rgba(231,178,76,0.10);
+            color: #e7b24c;
+        }
+
+        .nav-auth {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-auth:hover {
+            color: #e7b24c;
+        }
+
+
+        /* =====================================================
+           PRIMARY EMERGENCY
         ===================================================== */
 
         .primary-emergency {
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #301b1b,
-                    #111a2e
-                );
-
+            background: linear-gradient(135deg, #301b1b, #111a2e);
             border: 2px solid #e7b24c;
-
             border-radius: 18px;
-
             padding: 35px;
-
             margin-bottom: 25px;
-
-            box-shadow:
-                0 10px 35px
-                rgba(0,0,0,0.25);
-
+            box-shadow: 0 10px 35px rgba(0,0,0,0.25);
         }
-
 
         .primary-label {
-
-            font-family:
-                "IBM Plex Mono",
-                monospace;
-
+            font-family: "IBM Plex Mono", monospace;
             font-size: 13px;
-
             letter-spacing: 1px;
-
             color: #e7b24c;
-
             margin-bottom: 12px;
-
         }
-
 
         .primary-emergency h2 {
-
             margin: 0 0 10px;
-
             font-size: 30px;
-
         }
-
-
-        .primary-emergency p {
-
-            color: #c7cbd4;
-
-            line-height: 1.6;
-
-            max-width: 800px;
-
-        }
-
 
         .primary-number {
-
-            font-family:
-                "IBM Plex Mono",
-                monospace;
-
+            font-family: "IBM Plex Mono", monospace;
             font-size: 48px;
-
             font-weight: 700;
-
             color: #e7b24c;
-
             margin: 20px 0;
-
         }
-
 
         .call-button {
-
             display: inline-block;
-
             padding: 13px 25px;
-
             border-radius: 9px;
-
             background: #e7b24c;
-
             color: #111827;
-
             text-decoration: none;
-
             font-weight: 700;
-
         }
 
-
         .call-button:hover {
-
             opacity: 0.9;
-
         }
 
 
         /* =====================================================
-           NATIONAL IMPORTANT NUMBERS
+           SECTIONS
         ===================================================== */
 
         .section-heading {
-
             margin-top: 45px;
-
             margin-bottom: 20px;
-
         }
-
 
         .section-heading h2 {
-
             margin-bottom: 8px;
-
         }
-
-
-        .section-heading p {
-
-            color: #c7cbd4;
-
-            line-height: 1.6;
-
-        }
-
 
         .emergency-grid {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(260px, 1fr)
-                );
-
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
-
         }
-
 
         .emergency-card {
-
             background: #111a2e;
-
-            border: 1px solid
-                rgba(255,255,255,0.1);
-
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 15px;
-
             padding: 25px;
-
             transition: 0.25s;
-
         }
-
 
         .emergency-card:hover {
-
             transform: translateY(-3px);
-
             border-color: #e7b24c;
-
         }
-
 
         .emergency-card h3 {
-
             color: #e7b24c;
-
             margin-bottom: 10px;
-
         }
-
-
-        .emergency-card p {
-
-            color: #c7cbd4;
-
-            line-height: 1.6;
-
-        }
-
 
         .card-number {
-
             display: block;
-
-            font-family:
-                "IBM Plex Mono",
-                monospace;
-
+            font-family: "IBM Plex Mono", monospace;
             font-size: 25px;
-
             font-weight: 600;
-
             color: #ffffff;
-
             margin: 18px 0;
-
         }
-
 
         .region-tag {
-
             display: inline-block;
-
             padding: 5px 9px;
-
             border-radius: 5px;
-
-            background:
-                rgba(231,178,76,0.1);
-
+            background: rgba(231,178,76,0.1);
             color: #e7b24c;
-
-            font-family:
-                "IBM Plex Mono",
-                monospace;
-
+            font-family: "IBM Plex Mono", monospace;
             font-size: 11px;
-
             margin-bottom: 8px;
-
         }
 
-
-        .call-small {
-
+        .call-small,
+        .state-call {
             display: inline-block;
-
             padding: 9px 15px;
-
             border: 1px solid #e7b24c;
-
             border-radius: 7px;
-
             color: #e7b24c;
-
             text-decoration: none;
-
             font-weight: 600;
-
         }
 
-
-        .call-small:hover {
-
+        .call-small:hover,
+        .state-call:hover {
             background: #e7b24c;
-
             color: #111827;
-
         }
 
 
         /* =====================================================
-           SEARCH SECTION
+           SEARCH
         ===================================================== */
 
         .state-section {
-
             margin-top: 55px;
-
         }
-
 
         .search-box {
-
             position: relative;
-
             margin: 25px 0;
-
         }
-
 
         .search-box input {
-
             width: 100%;
-
             box-sizing: border-box;
-
             padding: 17px 50px 17px 20px;
-
             border-radius: 10px;
-
-            border: 1px solid
-                rgba(255,255,255,0.15);
-
+            border: 1px solid rgba(255,255,255,0.15);
             background: #111a2e;
-
             color: #ffffff;
-
             font-size: 16px;
-
             outline: none;
-
         }
-
 
         .search-box input:focus {
-
             border-color: #e7b24c;
-
         }
-
 
         .search-box input::placeholder {
-
             color: #8f96a5;
-
         }
-
 
         .search-icon {
-
             position: absolute;
-
             right: 18px;
-
             top: 50%;
-
-            transform:
-                translateY(-50%);
-
+            transform: translateY(-50%);
             color: #e7b24c;
-
             font-size: 20px;
-
         }
 
-
         .clear-search {
-
             margin-top: 8px;
-
             background: none;
-
             border: none;
-
             color: #e7b24c;
-
             cursor: pointer;
-
             font-size: 14px;
-
             display: none;
-
         }
 
 
         /* =====================================================
-           STATE TABLE
+           TABLE
         ===================================================== */
 
         .state-table-wrapper {
-
             overflow-x: auto;
-
         }
-
 
         .state-table {
-
             width: 100%;
-
             border-collapse: collapse;
-
             background: #111a2e;
-
             border-radius: 12px;
-
             overflow: hidden;
-
         }
-
 
         .state-table th,
         .state-table td {
-
             padding: 15px;
-
             text-align: left;
-
-            border-bottom:
-                1px solid
-                rgba(255,255,255,0.08);
-
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
-
 
         .state-table th {
-
             color: #e7b24c;
-
             font-weight: 600;
-
             background: #0d1526;
-
         }
-
 
         .state-table td {
-
             color: #d6d9e0;
-
         }
-
-
-        .state-table tr:hover {
-
-            background:
-                rgba(231,178,76,0.04);
-
-        }
-
 
         .state-number {
-
-            font-family:
-                "IBM Plex Mono",
-                monospace;
-
+            font-family: "IBM Plex Mono", monospace;
             color: #ffffff;
-
             font-weight: 600;
-
         }
-
-
-        .state-call {
-
-            display: inline-block;
-
-            padding: 7px 12px;
-
-            border: 1px solid #e7b24c;
-
-            border-radius: 6px;
-
-            color: #e7b24c;
-
-            text-decoration: none;
-
-            font-size: 13px;
-
-            font-weight: 600;
-
-        }
-
-
-        .state-call:hover {
-
-            background: #e7b24c;
-
-            color: #111827;
-
-        }
-
 
         .coverage {
-
             font-size: 12px;
-
             color: #9ea5b5;
-
         }
-
-
-        /* =====================================================
-           NO RESULTS
-        ===================================================== */
 
         .no-results {
-
             display: none;
-
             text-align: center;
-
             padding: 35px;
-
             color: #c7cbd4;
-
             background: #111a2e;
-
             border-radius: 12px;
-
             margin-top: 15px;
-
         }
 
 
         /* =====================================================
-           INFORMATION NOTE
+           NOTES
         ===================================================== */
 
-        .info-note {
-
+        .info-note,
+        .warning-note {
             margin-top: 30px;
-
             padding: 20px;
-
             border-left: 3px solid #e7b24c;
-
-            background:
-                rgba(231,178,76,0.06);
-
+            background: rgba(231,178,76,0.06);
             color: #c7cbd4;
-
             line-height: 1.7;
-
         }
 
-
         .warning-note {
-
             margin-top: 20px;
-
-            padding: 20px;
-
-            border-left: 3px solid #e7b24c;
-
-            background:
-                rgba(231,178,76,0.04);
-
-            color: #c7cbd4;
-
-            line-height: 1.7;
-
         }
 
 
@@ -623,44 +394,33 @@
         @media (max-width: 700px) {
 
             .emergency-container {
-
                 margin-top: 30px;
-
                 padding: 15px;
-
             }
-
 
             .primary-emergency {
-
                 padding: 25px;
-
             }
-
 
             .primary-number {
-
                 font-size: 40px;
-
             }
-
 
             .state-table th,
             .state-table td {
-
                 padding: 12px;
-
             }
 
+            .profile-menu {
+                right: -5px;
+            }
         }
 
     </style>
-
 </head>
 
 
 <body>
-
 
 <!-- =========================================================
      NAVIGATION
@@ -668,82 +428,34 @@
 
 <header class="nav">
 
-
-    <a href="index.html"
-       class="brand">
-
+    <a href="index.html" class="brand">
         <span class="dot pulse"></span>
-
         HerRights AI
-
     </a>
-
 
     <nav class="links">
 
-
         <a href="index.html">
-
             <span class="dot"></span>
-
             Home
-
         </a>
-
 
         <a href="resources.html">
-
             <span class="dot"></span>
-
             Rights &amp; Resources
-
         </a>
-
 
         <a href="chat.html">
-
             <span class="dot"></span>
-
             Chat
-
         </a>
-
 
     </nav>
 
-
-    <div class="nav-right">
-
-
-        <a href="login.html"
-           class="nav-auth">
-
-            Log in
-
-        </a>
-
-
-        <a href="signup.html"
-           class="nav-auth">
-
-            Sign up
-
-        </a>
-
-
-        <button
-            class="quick-exit"
-            id="quickExitBtn">
-
-            ⎋ Quick Exit
-
-        </button>
-
-
-    </div>
+    <!-- Dynamic account area -->
+    <div class="nav-right" id="navAccount"></div>
 
 </header>
-
 
 
 <!-- =========================================================
@@ -757,36 +469,24 @@
 
     <section class="emergency-intro">
 
-
         <div class="eyebrow">
-
             <span class="dot pulse"></span>
-
             HER RIGHTS AI · EMERGENCY HELP
-
         </div>
 
-
         <h1>
-
             Emergency Numbers for Women in India
-
         </h1>
 
-
         <p>
-
             Find important emergency and women-support
             helplines across India. The most important
             national emergency service is shown first,
             followed by national women-support services
             and state/UT information.
-
         </p>
 
-
     </section>
-
 
 
     <!-- =====================================================
@@ -795,48 +495,29 @@
 
     <section class="primary-emergency">
 
-
         <div class="primary-label">
-
             MOST IMPORTANT · ALL INDIA
-
         </div>
 
-
         <h2>
-
             Emergency Response Support System
-
         </h2>
 
-
         <p>
-
             If you are in immediate danger or need
             urgent police, fire or medical assistance,
             call the unified emergency number.
-
         </p>
 
-
         <div class="primary-number">
-
             112
-
         </div>
 
-
-        <a
-            href="tel:112"
-            class="call-button">
-
+        <a href="tel:112" class="call-button">
             Call 112
-
         </a>
 
-
     </section>
-
 
 
     <!-- =====================================================
@@ -845,432 +526,249 @@
 
     <section>
 
-
         <div class="section-heading">
 
-
             <div class="eyebrow">
-
                 <span class="dot"></span>
-
                 NATIONAL SUPPORT
-
             </div>
 
-
             <h2>
-
                 Important Women Support Numbers
-
             </h2>
 
-
             <p>
-
                 These services can be used from
                 different parts of India according
                 to their purpose and availability.
-
             </p>
 
-
         </div>
-
 
 
         <div class="emergency-grid">
 
 
-
-            <!-- 181 -->
-
             <article class="emergency-card">
 
-
                 <span class="region-tag">
-
                     WOMEN HELPLINE · 35 STATES/UTs
-
                 </span>
 
-
                 <h3>
-
                     Women Helpline
-
                 </h3>
 
-
                 <p>
-
                     24-hour support for women in
                     distress, including referral to
                     appropriate authorities and
                     support services.
-
                 </p>
 
-
                 <span class="card-number">
-
                     181
-
                 </span>
 
-
-                <a
-                    href="tel:181"
-                    class="call-small">
-
+                <a href="tel:181" class="call-small">
                     Call 181
-
                 </a>
-
 
             </article>
 
 
-
-            <!-- NCW -->
-
             <article class="emergency-card">
 
-
                 <span class="region-tag">
-
                     NATIONAL · 24×7
-
                 </span>
 
-
                 <h3>
-
                     National Commission for Women
-
                 </h3>
 
-
                 <p>
-
                     Contact the National Commission
                     for Women regarding violence
                     against women and women's rights
                     related concerns.
-
                 </p>
 
-
                 <span class="card-number">
-
                     14490
-
                 </span>
 
-
-                <a
-                    href="tel:14490"
-                    class="call-small">
-
+                <a href="tel:14490" class="call-small">
                     Call 14490
-
                 </a>
-
 
             </article>
 
 
-
-            <!-- CYBER -->
-
             <article class="emergency-card">
 
-
                 <span class="region-tag">
-
                     NATIONAL · CYBERCRIME
-
                 </span>
 
-
                 <h3>
-
                     Cybercrime &amp; Financial Fraud
-
                 </h3>
 
-
                 <p>
-
                     Report cybercrime and especially
                     financial cyber fraud through the
                     national cybercrime reporting
                     system.
-
                 </p>
 
-
                 <span class="card-number">
-
                     1930
-
                 </span>
 
-
-                <a
-                    href="tel:1930"
-                    class="call-small">
-
+                <a href="tel:1930" class="call-small">
                     Call 1930
-
                 </a>
-
 
             </article>
 
 
-
-            <!-- POLICE -->
-
             <article class="emergency-card">
 
-
                 <span class="region-tag">
-
                     NATIONAL
-
                 </span>
 
-
                 <h3>
-
                     Police
-
                 </h3>
 
-
                 <p>
-
                     Police assistance is available
                     through national and local
                     emergency systems.
-
                 </p>
 
-
                 <span class="card-number">
-
                     100
-
                 </span>
 
-
-                <a
-                    href="tel:100"
-                    class="call-small">
-
+                <a href="tel:100" class="call-small">
                     Call 100
-
                 </a>
-
 
             </article>
 
 
-
-            <!-- AMBULANCE -->
-
             <article class="emergency-card">
 
-
                 <span class="region-tag">
-
                     NATIONAL
-
                 </span>
 
-
                 <h3>
-
                     Ambulance
-
                 </h3>
 
-
                 <p>
-
                     For urgent medical assistance.
                     112 may also be used for
                     emergency response.
-
                 </p>
 
-
                 <span class="card-number">
-
                     102
-
                 </span>
 
-
-                <a
-                    href="tel:102"
-                    class="call-small">
-
+                <a href="tel:102" class="call-small">
                     Call 102
-
                 </a>
-
 
             </article>
 
 
-
-            <!-- FIRE -->
-
             <article class="emergency-card">
 
-
                 <span class="region-tag">
-
                     NATIONAL
-
                 </span>
 
-
                 <h3>
-
                     Fire &amp; Rescue
-
                 </h3>
 
-
                 <p>
-
                     For fire emergencies and
                     fire-and-rescue assistance.
-
                 </p>
 
-
                 <span class="card-number">
-
                     101
-
                 </span>
 
-
-                <a
-                    href="tel:101"
-                    class="call-small">
-
+                <a href="tel:101" class="call-small">
                     Call 101
-
                 </a>
-
 
             </article>
 
 
-
-            <!-- CHILD -->
-
             <article class="emergency-card">
 
-
                 <span class="region-tag">
-
                     ALL STATES &amp; UTs
-
                 </span>
 
-
                 <h3>
-
                     Child Helpline
-
                 </h3>
 
-
                 <p>
-
                     For girls under 18 and children
                     facing abuse, danger, exploitation
                     or distress.
-
                 </p>
 
-
                 <span class="card-number">
-
                     1098
-
                 </span>
 
-
-                <a
-                    href="tel:1098"
-                    class="call-small">
-
+                <a href="tel:1098" class="call-small">
                     Call 1098
-
                 </a>
-
 
             </article>
 
-
-
-            <!-- LEGAL AID -->
 
             <article class="emergency-card">
 
-
                 <span class="region-tag">
-
                     NATIONAL
-
                 </span>
 
-
                 <h3>
-
                     Free Legal Aid
-
                 </h3>
 
-
                 <p>
-
                     Women needing legal assistance
                     can seek help through the
                     National Legal Services Authority.
-
                 </p>
 
-
                 <span class="card-number">
-
                     15100
-
                 </span>
 
-
-                <a
-                    href="tel:15100"
-                    class="call-small">
-
+                <a href="tel:15100" class="call-small">
                     Call 15100
-
                 </a>
 
-
             </article>
-
 
         </div>
 
     </section>
-
 
 
     <!-- =====================================================
@@ -1279,1050 +777,83 @@
 
     <section class="state-section">
 
-
         <div class="section-heading">
 
-
             <div class="eyebrow">
-
                 <span class="dot"></span>
-
                 STATE &amp; UT DIRECTORY
-
             </div>
 
-
             <h2>
-
                 Find Your State Women Helpline
-
             </h2>
 
-
             <p>
-
                 Search for your state or Union Territory
                 to see the applicable Women Helpline
                 information.
-
             </p>
-
 
         </div>
 
 
-
-        <!-- SEARCH BAR -->
-
         <div class="search-box">
-
 
             <input
                 type="text"
                 id="stateSearch"
-                placeholder="Search your state or Union Territory...">
-
+                placeholder="Search your state or Union Territory..."
+            >
 
             <span class="search-icon">
-
                 🔍
-
             </span>
-
 
         </div>
 
 
-        <button
-            id="clearSearch"
-            class="clear-search">
-
+        <button id="clearSearch" class="clear-search">
             Clear search
-
         </button>
 
 
-
-        <!-- STATE TABLE -->
-
         <div class="state-table-wrapper">
 
-
             <table class="state-table">
-
 
                 <thead>
 
                     <tr>
-
-                        <th>
-
-                            State / Union Territory
-
-                        </th>
-
-
-                        <th>
-
-                            Women Helpline
-
-                        </th>
-
-
-                        <th>
-
-                            Region / Status
-
-                        </th>
-
-
-                        <th>
-
-                            Action
-
-                        </th>
-
+                        <th>State / Union Territory</th>
+                        <th>Women Helpline</th>
+                        <th>Region / Status</th>
+                        <th>Action</th>
                     </tr>
 
                 </thead>
 
-
-                <tbody id="stateTableBody">
-
-
-                    <!-- =================================================
-                         STATES
-                    ================================================== -->
-
-
-                    <tr>
-
-                        <td>
-                            Andhra Pradesh
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Arunachal Pradesh
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Assam
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Bihar
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Chhattisgarh
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Goa
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Gujarat
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Haryana
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Himachal Pradesh
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Jharkhand
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Karnataka
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Kerala
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Madhya Pradesh
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Maharashtra
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Manipur
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Meghalaya
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Mizoram
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Nagaland
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Odisha
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Punjab
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Rajasthan
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Sikkim
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Tamil Nadu
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Telangana
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Tripura
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Uttar Pradesh
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Uttarakhand
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            State Women Helpline
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr class="special-state">
-
-                        <td>
-
-                            West Bengal
-
-                        </td>
-
-                        <td class="state-number">
-
-                            1091
-
-                        </td>
-
-                        <td class="coverage">
-
-                            State women support /
-                            181 currently not operational
-
-                        </td>
-
-                        <td>
-
-                            <a href="tel:1091"
-                               class="state-call">
-
-                                Call
-
-                            </a>
-
-                        </td>
-
-                    </tr>
-
-
-
-                    <!-- =================================================
-                         UNION TERRITORIES
-                    ================================================== -->
-
-
-                    <tr>
-
-                        <td>
-                            Andaman &amp; Nicobar Islands
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            Union Territory
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Chandigarh
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            Union Territory
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Dadra &amp; Nagar Haveli and Daman &amp; Diu
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            Union Territory
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Delhi
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            Union Territory / NCT
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Jammu &amp; Kashmir
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            Union Territory
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Ladakh
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            Union Territory
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Lakshadweep
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            Union Territory
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Puducherry
-                        </td>
-
-                        <td class="state-number">
-                            181
-                        </td>
-
-                        <td class="coverage">
-                            Union Territory
-                        </td>
-
-                        <td>
-                            <a href="tel:181"
-                               class="state-call">
-                                Call
-                            </a>
-                        </td>
-
-                    </tr>
-
-
-                </tbody>
+                <tbody id="stateTableBody"></tbody>
 
             </table>
 
-
-            <!-- NO RESULTS -->
-
-            <div
-                id="noResults"
-                class="no-results">
-
+            <div id="noResults" class="no-results">
                 No state or Union Territory found.
-
             </div>
 
-
         </div>
-
-
-        <!-- CLEAR SEARCH -->
-
-        <button
-            id="clearSearch"
-            class="clear-search">
-
-            Clear search
-
-        </button>
-
 
     </section>
 
 
-
     <!-- =====================================================
-         IMPORTANT INFORMATION
+         INFORMATION
     ====================================================== -->
 
     <div class="info-note">
 
-
         <strong>
-
             About Women Helpline 181:
-
         </strong>
-
 
         The Government of India's Women Helpline
         provides 24-hour emergency and
@@ -2335,16 +866,11 @@
     </div>
 
 
-
     <div class="warning-note">
 
-
         <strong>
-
             If you are in immediate danger:
-
         </strong>
-
 
         Call <strong>112</strong> first.
 
@@ -2356,12 +882,10 @@
         police, medical professionals or legal
         professionals.
 
-
     </div>
 
 
 </main>
-
 
 
 <!-- =========================================================
@@ -2370,157 +894,567 @@
 
 <footer>
 
-
     <p>
-
         HerRights AI — a college prototype
         for an AI-Based Legal Rights &amp;
         Cyber Safety Assistant.
-
     </p>
-
-
-    <a href="#"
-       class="foot-exit"
-       id="footExit">
-
-        ⎋ Leave this site instantly
-
-    </a>
-
 
 </footer>
 
 
-
 <!-- =========================================================
-     SEARCH JAVASCRIPT
+     ACCOUNT JAVASCRIPT
 ========================================================= -->
 
 <script>
 
-    const searchInput =
-        document.getElementById("stateSearch");
-
-    const tableBody =
-        document.getElementById("stateTableBody");
-
-    const rows =
-        tableBody.querySelectorAll("tr");
-
-    const noResults =
-        document.getElementById("noResults");
-
-    const clearButton =
-        document.getElementById("clearSearch");
-
-
-    searchInput.addEventListener(
-        "input",
+    document.addEventListener(
+        "DOMContentLoaded",
         function () {
 
-            const searchValue =
-                searchInput.value
-                    .toLowerCase()
-                    .trim();
+            loadAccount();
+            loadStates();
+
+        }
+    );
 
 
-            let visibleRows = 0;
+    /* =====================================================
+       ACCOUNT
+    ===================================================== */
+
+    async function loadAccount() {
+
+        const navAccount =
+            document.getElementById("navAccount");
+
+        try {
+
+            const response =
+                await fetch("/api/me");
+
+            const data =
+                await response.json();
 
 
-            rows.forEach(function (row) {
+            if (data.logged_in && data.user) {
 
-                const stateName =
-                    row
-                        .cells[0]
-                        .textContent
-                        .toLowerCase();
+                const name =
+                    data.user.name;
 
 
-                if (
-                    stateName.includes(searchValue)
-                ) {
+                navAccount.innerHTML = `
 
-                    row.style.display = "";
+                    <div class="profile-area">
 
-                    visibleRows++;
+                        <button
+                            class="profile-button"
+                            id="profileButton">
+
+                            ${getInitial(name)}
+
+                        </button>
+
+
+                        <div
+                            class="profile-menu"
+                            id="profileMenu">
+
+                            <div class="profile-name">
+                                ${escapeHtml(name)}
+                            </div>
+
+                            <button id="changeAccount">
+                                Change account
+                            </button>
+
+                            <button id="guestMode">
+                                Use without an account
+                            </button>
+
+                            <button id="logoutButton">
+                                Sign out
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+
+                setupProfileMenu();
+
+            }
+
+            else {
+
+                navAccount.innerHTML = `
+
+                    <a
+                        href="login.html"
+                        class="nav-auth">
+
+                        Log in
+
+                    </a>
+
+                    <a
+                        href="signup.html"
+                        class="nav-auth">
+
+                        Sign up
+
+                    </a>
+
+                `;
+
+            }
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Account loading error:",
+                error
+            );
+
+            navAccount.innerHTML = `
+
+                <a
+                    href="login.html"
+                    class="nav-auth">
+
+                    Log in
+
+                </a>
+
+                <a
+                    href="signup.html"
+                    class="nav-auth">
+
+                    Sign up
+
+                </a>
+
+            `;
+
+        }
+
+    }
+
+
+    function setupProfileMenu() {
+
+        const profileButton =
+            document.getElementById(
+                "profileButton"
+            );
+
+        const profileMenu =
+            document.getElementById(
+                "profileMenu"
+            );
+
+
+        profileButton.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+                profileMenu.classList.toggle(
+                    "show"
+                );
+
+            }
+        );
+
+
+        document.addEventListener(
+            "click",
+            function () {
+
+                profileMenu.classList.remove(
+                    "show"
+                );
+
+            }
+        );
+
+
+        document.getElementById(
+            "changeAccount"
+        ).addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "login.html";
+
+            }
+        );
+
+
+        document.getElementById(
+            "guestMode"
+        ).addEventListener(
+            "click",
+            async function () {
+
+                await fetch(
+                    "/api/logout",
+                    {
+                        method: "POST"
+                    }
+                );
+
+                window.location.href =
+                    "index.html";
+
+            }
+        );
+
+
+        document.getElementById(
+            "logoutButton"
+        ).addEventListener(
+            "click",
+            async function () {
+
+                await fetch(
+                    "/api/logout",
+                    {
+                        method: "POST"
+                    }
+                );
+
+                window.location.href =
+                    "index.html";
+
+            }
+        );
+
+    }
+
+
+    function getInitial(name) {
+
+        if (!name) {
+            return "U";
+        }
+
+        return name
+            .trim()
+            .charAt(0)
+            .toUpperCase();
+
+    }
+
+
+    function escapeHtml(text) {
+
+        const div =
+            document.createElement("div");
+
+        div.textContent = text;
+
+        return div.innerHTML;
+
+    }
+
+
+    /* =====================================================
+       STATE DATA
+    ===================================================== */
+
+    function loadStates() {
+
+        const states = [
+
+            ["Andhra Pradesh", "181", "State Women Helpline"],
+            ["Arunachal Pradesh", "181", "State Women Helpline"],
+            ["Assam", "181", "State Women Helpline"],
+            ["Bihar", "181", "State Women Helpline"],
+            ["Chhattisgarh", "181", "State Women Helpline"],
+            ["Goa", "181", "State Women Helpline"],
+            ["Gujarat", "181", "State Women Helpline"],
+            ["Haryana", "181", "State Women Helpline"],
+            ["Himachal Pradesh", "181", "State Women Helpline"],
+            ["Jharkhand", "181", "State Women Helpline"],
+            ["Karnataka", "181", "State Women Helpline"],
+            ["Kerala", "181", "State Women Helpline"],
+            ["Madhya Pradesh", "181", "State Women Helpline"],
+            ["Maharashtra", "181", "State Women Helpline"],
+            ["Manipur", "181", "State Women Helpline"],
+            ["Meghalaya", "181", "State Women Helpline"],
+            ["Mizoram", "181", "State Women Helpline"],
+            ["Nagaland", "181", "State Women Helpline"],
+            ["Odisha", "181", "State Women Helpline"],
+            ["Punjab", "181", "State Women Helpline"],
+            ["Rajasthan", "181", "State Women Helpline"],
+            ["Sikkim", "181", "State Women Helpline"],
+            ["Tamil Nadu", "181", "State Women Helpline"],
+            ["Telangana", "181", "State Women Helpline"],
+            ["Tripura", "181", "State Women Helpline"],
+            ["Uttar Pradesh", "181", "State Women Helpline"],
+            ["Uttarakhand", "181", "State Women Helpline"],
+
+            [
+                "West Bengal",
+                "1091",
+                "State women support / 181 currently not operational"
+            ],
+
+            [
+                "Andaman & Nicobar Islands",
+                "181",
+                "Union Territory"
+            ],
+
+            [
+                "Chandigarh",
+                "181",
+                "Union Territory"
+            ],
+
+            [
+                "Dadra & Nagar Haveli and Daman & Diu",
+                "181",
+                "Union Territory"
+            ],
+
+            [
+                "Delhi",
+                "181",
+                "Union Territory / NCT"
+            ],
+
+            [
+                "Jammu & Kashmir",
+                "181",
+                "Union Territory"
+            ],
+
+            [
+                "Ladakh",
+                "181",
+                "Union Territory"
+            ],
+
+            [
+                "Lakshadweep",
+                "181",
+                "Union Territory"
+            ],
+
+            [
+                "Puducherry",
+                "181",
+                "Union Territory"
+            ]
+
+        ];
+
+
+        const tableBody =
+            document.getElementById(
+                "stateTableBody"
+            );
+
+
+        states.forEach(
+            function (state) {
+
+                const row =
+                    document.createElement("tr");
+
+
+                row.innerHTML = `
+
+                    <td>
+                        ${state[0]}
+                    </td>
+
+                    <td class="state-number">
+                        ${state[1]}
+                    </td>
+
+                    <td class="coverage">
+                        ${state[2]}
+                    </td>
+
+                    <td>
+
+                        <a
+                            href="tel:${state[1]}"
+                            class="state-call">
+
+                            Call
+
+                        </a>
+
+                    </td>
+
+                `;
+
+
+                tableBody.appendChild(row);
+
+            }
+        );
+
+
+        setupSearch();
+
+    }
+
+
+    /* =====================================================
+       SEARCH
+    ===================================================== */
+
+    function setupSearch() {
+
+        const searchInput =
+            document.getElementById(
+                "stateSearch"
+            );
+
+        const tableBody =
+            document.getElementById(
+                "stateTableBody"
+            );
+
+        const rows =
+            tableBody.querySelectorAll("tr");
+
+        const noResults =
+            document.getElementById(
+                "noResults"
+            );
+
+        const clearButton =
+            document.getElementById(
+                "clearSearch"
+            );
+
+
+        searchInput.addEventListener(
+            "input",
+            function () {
+
+                const value =
+                    searchInput.value
+                        .toLowerCase()
+                        .trim();
+
+
+                let visibleRows = 0;
+
+
+                rows.forEach(
+                    function (row) {
+
+                        const stateName =
+                            row.cells[0]
+                                .textContent
+                                .toLowerCase();
+
+
+                        if (
+                            stateName.includes(value)
+                        ) {
+
+                            row.style.display =
+                                "";
+
+                            visibleRows++;
+
+                        }
+
+                        else {
+
+                            row.style.display =
+                                "none";
+
+                        }
+
+                    }
+                );
+
+
+                if (visibleRows === 0) {
+
+                    noResults.style.display =
+                        "block";
 
                 }
 
                 else {
 
-                    row.style.display = "none";
+                    noResults.style.display =
+                        "none";
 
                 }
 
-            });
 
+                if (value.length > 0) {
 
-            if (visibleRows === 0) {
+                    clearButton.style.display =
+                        "inline-block";
 
-                noResults.style.display =
-                    "block";
+                }
+
+                else {
+
+                    clearButton.style.display =
+                        "none";
+
+                }
 
             }
+        );
 
-            else {
+
+        clearButton.addEventListener(
+            "click",
+            function () {
+
+                searchInput.value = "";
+
+
+                rows.forEach(
+                    function (row) {
+
+                        row.style.display =
+                            "";
+
+                    }
+                );
+
 
                 noResults.style.display =
                     "none";
 
-            }
-
-
-            if (searchValue.length > 0) {
-
-                clearButton.style.display =
-                    "inline-block";
-
-            }
-
-            else {
 
                 clearButton.style.display =
                     "none";
 
+
+                searchInput.focus();
+
             }
+        );
 
-        }
-    );
-
-
-    clearButton.addEventListener(
-        "click",
-        function () {
-
-            searchInput.value = "";
-
-            rows.forEach(function (row) {
-
-                row.style.display = "";
-
-            });
-
-
-            noResults.style.display =
-                "none";
-
-
-            clearButton.style.display =
-                "none";
-
-
-            searchInput.focus();
-
-        }
-    );
+    }
 
 </script>
 
 
-
 <script src="script.js"></script>
-
 
 </body>
 

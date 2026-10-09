@@ -150,6 +150,83 @@
             color: #e7b24c;
         }
 
+
+        /* =========================================
+           PROFILE
+        ========================================= */
+
+        .profile-area {
+            position: relative;
+        }
+
+        .profile-button {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 2px solid #e7b24c;
+            background: #e7b24c;
+            color: #111827;
+            font-weight: 700;
+            font-size: 17px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            line-height: 1;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .profile-button:hover {
+            transform: scale(1.05);
+            background: #f0c266;
+            border-color: #f0c266;
+        }
+
+        .profile-menu {
+            position: absolute;
+            right: 0;
+            top: 52px;
+            width: 230px;
+            background: #111a2e;
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 14px;
+            padding: 10px;
+            box-shadow: 0 15px 35px rgba(0,0,0,.35);
+            display: none;
+            z-index: 1000;
+        }
+
+        .profile-menu.show {
+            display: block;
+        }
+
+        .profile-name {
+            padding: 12px;
+            color: white;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(255,255,255,.08);
+            margin-bottom: 6px;
+        }
+
+        .profile-menu button {
+            width: 100%;
+            padding: 11px 12px;
+            border: none;
+            background: transparent;
+            color: #d8dce5;
+            text-align: left;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .profile-menu button:hover {
+            background: rgba(255,255,255,.07);
+            color: #e7b24c;
+        }
+
     </style>
 
 </head>
@@ -172,30 +249,42 @@
     <nav class="links">
 
         <a href="index.html">
+
             <span class="dot"></span>
+
             Home
+
         </a>
+
 
         <a href="resources.html">
+
             <span class="dot"></span>
+
             Rights &amp; Resources
+
         </a>
 
+
         <a href="chat.html">
+
             <span class="dot"></span>
+
             Chat
+
         </a>
 
     </nav>
 
 
-    <div class="nav-right">
+    <div
+        class="nav-right"
+        id="navAccount">
 
-        <a href="signup.html" class="nav-auth">
-            Sign up
-        </a>
+        <!-- Account controls inserted here -->
 
     </div>
+
 
 </header>
 
@@ -330,16 +419,305 @@
 <footer>
 
     <p>
+
         HerRights AI — a college prototype for an
         AI-Based Legal Rights &amp; Cyber Safety Assistant.
+
     </p>
 
 </footer>
 
 
 
+<!-- =========================================
+     ACCOUNT SYSTEM
+========================================= -->
+
 <script>
 
+document.addEventListener(
+    "DOMContentLoaded",
+    loadAccount
+);
+
+
+async function loadAccount() {
+
+    const navAccount =
+        document.getElementById("navAccount");
+
+
+    try {
+
+        const response =
+            await fetch("/api/me");
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            data.logged_in &&
+            data.user
+        ) {
+
+            const name =
+                data.user.name;
+
+
+            navAccount.innerHTML = `
+
+                <div class="profile-area">
+
+                    <button
+                        class="profile-button"
+                        id="profileButton">
+
+                        ${getInitial(name)}
+
+                    </button>
+
+
+                    <div
+                        class="profile-menu"
+                        id="profileMenu">
+
+
+                        <div class="profile-name">
+
+                            ${escapeHtml(name)}
+
+                        </div>
+
+
+                        <button
+                            id="changeAccount">
+
+                            Change account
+
+                        </button>
+
+
+                        <button
+                            id="guestMode">
+
+                            Use without an account
+
+                        </button>
+
+
+                        <button
+                            id="logoutButton">
+
+                            Sign out
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            setupProfileMenu();
+
+        }
+
+        else {
+
+            navAccount.innerHTML = `
+
+                <a
+                    href="login.html"
+                    class="nav-auth">
+
+                    Log in
+
+                </a>
+
+
+                <a
+                    href="signup.html"
+                    class="nav-auth">
+
+                    Sign up
+
+                </a>
+
+            `;
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+
+        navAccount.innerHTML = `
+
+            <a
+                href="login.html"
+                class="nav-auth">
+
+                Log in
+
+            </a>
+
+
+            <a
+                href="signup.html"
+                class="nav-auth">
+
+                Sign up
+
+            </a>
+
+        `;
+
+    }
+
+}
+
+
+
+function setupProfileMenu() {
+
+    const profileButton =
+        document.getElementById(
+            "profileButton"
+        );
+
+
+    const profileMenu =
+        document.getElementById(
+            "profileMenu"
+        );
+
+
+    profileButton.addEventListener(
+        "click",
+        function(event) {
+
+            event.stopPropagation();
+
+            profileMenu.classList.toggle(
+                "show"
+            );
+
+        }
+    );
+
+
+    document.addEventListener(
+        "click",
+        function() {
+
+            profileMenu.classList.remove(
+                "show"
+            );
+
+        }
+    );
+
+
+    document
+        .getElementById("changeAccount")
+        .addEventListener(
+            "click",
+            function() {
+
+                window.location.href =
+                    "login.html";
+
+            }
+        );
+
+
+    document
+        .getElementById("guestMode")
+        .addEventListener(
+            "click",
+            async function() {
+
+                await fetch(
+                    "/api/logout",
+                    {
+                        method: "POST"
+                    }
+                );
+
+
+                window.location.href =
+                    "index.html";
+
+            }
+        );
+
+
+    document
+        .getElementById("logoutButton")
+        .addEventListener(
+            "click",
+            async function() {
+
+                await fetch(
+                    "/api/logout",
+                    {
+                        method: "POST"
+                    }
+                );
+
+
+                window.location.href =
+                    "index.html";
+
+            }
+        );
+
+}
+
+
+
+function getInitial(name) {
+
+    if (!name) {
+
+        return "U";
+
+    }
+
+
+    return name
+        .trim()
+        .charAt(0)
+        .toUpperCase();
+
+}
+
+
+
+function escapeHtml(text) {
+
+    const div =
+        document.createElement("div");
+
+
+    div.textContent = text;
+
+
+    return div.innerHTML;
+
+}
+
+
+// =========================================
+// LOGIN
+// =========================================
 
 const loginForm =
     document.getElementById("loginForm");
@@ -347,50 +725,6 @@ const loginForm =
 const formMessage =
     document.getElementById("formMessage");
 
-
-// ============================================
-// SHOW / HIDE PASSWORD
-// ============================================
-
-document
-    .querySelectorAll(".toggle-pw")
-    .forEach(function(button) {
-
-        button.addEventListener(
-            "click",
-            function() {
-
-                const input =
-                    document.getElementById(
-                        button.dataset.target
-                    );
-
-
-                if (input.type === "password") {
-
-                    input.type = "text";
-
-                    button.textContent = "Hide";
-
-                }
-
-                else {
-
-                    input.type = "password";
-
-                    button.textContent = "Show";
-
-                }
-
-            }
-        );
-
-    });
-
-
-// ============================================
-// LOGIN
-// ============================================
 
 loginForm.addEventListener(
     "submit",
